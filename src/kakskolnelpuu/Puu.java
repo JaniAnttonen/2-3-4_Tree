@@ -42,6 +42,28 @@ public class Puu {
     	 		nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, Integer);
     	 }
     }
+    
+    public void lisää(Integer){
+    	Solmu nykyinenSolmu = root;
+    	
+    	while(true){
+    		if(nykyinenSolmu.onkoTaysi())
+    			{
+    			halkaise(nykyinenSolmu);
+    			nykyinenSolmu = nykyinenSolmu.haeIsa();
+    				
+    			nykyinenSolmu = haeSeuraavaLapsi(nykyinenSolmu, Integer);
+    			}
+    			
+    		else if(nykyinenSolmu.onkoLehti())
+    			break;
+    		
+    		else
+    			nykyinenSolmu = haeSeuraavaLapsi(nykyinenSolmu, Integer);
+    	}
+    	
+    	nykyinenSolmu.lisaaData(Integer);
+    }
 
     /**
      * Lisää syötetyn arvon oikeaan paikkaan puussa, ja
