@@ -7,8 +7,15 @@ import java.util.List;
  * Lisäys-, korjaus- ja poisto-operaatioiden toteutus yhteistyössä Solmu-luokan kanssa.
  *
  * @author Jani Anttonen
+ * @author Miika Länsi-Seppänen
  */
 public class Puu {
+
+    /**
+     * Kommentti
+     */
+     
+    private Solmu root = new Solmu();
 
     /**
      * Muuttujat, jotka sisältävät tiedot puun syvyydestä ja solmut yhteyksineen.
@@ -44,10 +51,13 @@ public class Puu {
     }
     
     /**
-     * Moi
+     * Lisää syötetyn arvon oikeaan paikkaan puussa, ja
+     * toteuttaa mahdolliset korjausoperaatiot.
+     * @param arvo
      */
+
     
-    public void lisää(Integer){
+    public void lisaaSolmu(Integer hessu){
     	Solmu nykyinenSolmu = root;
     	
     	while(true){
@@ -56,17 +66,26 @@ public class Puu {
     			halkaise(nykyinenSolmu);
     			nykyinenSolmu = nykyinenSolmu.haeIsa();
     				
-    			nykyinenSolmu = haeSeuraavaLapsi(nykyinenSolmu, Integer);
+    			nykyinenSolmu = haeSeuraavaLapsi(nykyinenSolmu, hessu);
     			}
     			
     		else if(nykyinenSolmu.onkoLehti())
     			break;
     		
     		else
-    			nykyinenSolmu = haeSeuraavaLapsi(nykyinenSolmu, Integer);
+    			nykyinenSolmu = haeSeuraavaLapsi(nykyinenSolmu, hessu);
     	}
     	
-    	nykyinenSolmu.lisaaData(Integer);
+    	nykyinenSolmu.lisaaData(hessu);
+    }
+    
+     /**
+     * Poistaa syötetyn arvon puusta (ei välitä duplikaateista),
+     * ja toteuttaa mahdolliset korjausoperaatiot.
+     * @param arvo
+     */
+    public void poistaSolmu(Integer arvo) {
+
     }
     
     /**
@@ -125,26 +144,6 @@ public class Puu {
     		return nykyinenSolmu.annaLapsi(j);
     	}
     }
-
-    /**
-     * Lisää syötetyn arvon oikeaan paikkaan puussa, ja
-     * toteuttaa mahdolliset korjausoperaatiot.
-     * @param arvo
-     */
-    public void lisaaSolmu(Integer arvo) {
-
-    }
-
-    /**
-     * Poistaa syötetyn arvon puusta (ei välitä duplikaateista),
-     * ja toteuttaa mahdolliset korjausoperaatiot.
-     * @param arvo
-     */
-    public void poistaSolmu(Integer arvo) {
-
-    }
-
-
 
     // Setterit ja getterit //
 
