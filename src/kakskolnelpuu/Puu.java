@@ -108,6 +108,19 @@ public class Puu {
     	uusiOikea.yhdistaLapsi(0, lapsi2);
     	uusiOikea.yhdistaLapsi(1, lapsi3);
     }
+    
+    public Solmu haeSeuraavaLapsi(Solmu nykyinenSolmu, Integer nykyinenArvo){
+    	int j;
+    	
+    	int koko = nykyinenSolmu.annaKoko();
+    	for(j=0; j<koko; j++){
+    		if(nykyinenArvo < nykyinenSolmu.annaArvo(j)){
+    			return nykyinenSolmu.annaLapsi(j);
+    		}
+    		
+    		return nykyinenSolmu.annaLapsi(j);
+    	}
+    }
 
     /**
      * Lisää syötetyn arvon oikeaan paikkaan puussa, ja
