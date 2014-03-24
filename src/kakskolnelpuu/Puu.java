@@ -109,6 +109,10 @@ public class Puu {
     	uusiOikea.yhdistaLapsi(1, lapsi3);
     }
     
+     /**
+     * Hei
+     */
+    
     public Solmu haeSeuraavaLapsi(Solmu nykyinenSolmu, Integer nykyinenArvo){
     	int j;
     	
