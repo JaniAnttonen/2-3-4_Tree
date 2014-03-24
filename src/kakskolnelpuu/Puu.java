@@ -26,7 +26,7 @@ public class Puu {
 	}
 	
     /**
-     * 
+     * Kommentti
      */
      
     public int etsi(Integer){
