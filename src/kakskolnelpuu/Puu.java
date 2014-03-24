@@ -24,6 +24,24 @@ public class Puu {
         taso = new List<Solmu>();
         puu = new Map<Integer, List<Solmu>>();
 	}
+	
+    /**
+     * 
+     */
+     
+    public int etsi(Integer){
+    	Solmu nykyinenSolmu = root;
+    	int lapsiIndeksi;
+    	while (true)
+    	 {
+    	 	if((lapsiIndeksi=nykyinenSolmu.etsiArvo(Integer)) != -1)
+    	 		return lapsiIndeksi;
+    	 	else if(nykyinenSolmu.onkoLehti())
+    	 		return -1;
+    	 	else
+    	 		nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, Integer);
+    	 }
+    }
 
     /**
      * Lisää syötetyn arvon oikeaan paikkaan puussa, ja
