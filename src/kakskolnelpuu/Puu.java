@@ -43,6 +43,10 @@ public class Puu {
     	 }
     }
     
+    /**
+     * Moi
+     */
+    
     public void lisää(Integer){
     	Solmu nykyinenSolmu = root;
     	
@@ -63,6 +67,46 @@ public class Puu {
     	}
     	
     	nykyinenSolmu.lisaaData(Integer);
+    }
+    
+    /**
+     * Hei
+     */
+    
+    public void halkaiseSolmu(Solmu nykyinenSolmu){
+    	Integer intB, intC;
+    	Solmu isa, lapsi2, lapsi3;
+    	int arvoIndeksi;
+    	
+    	intC = tamaSolmu.poistaData();
+    	intB = tamaSolmu.poistaData();
+    	lapsi2 = tamaSolmu.irroitaLapsi();
+    	lapsi3 = tama.Solmu.irroitaLapsi();
+    	
+    	Solmu uusiOikea = new Solmu();
+    	
+    	if(tamaSolmu==root){
+    		root = uusi Solmu();
+    		isa = root;
+    		root.yhdistaLapsi(0, tamaSolmu);
+    	}
+    	
+    	else
+    		isa = tamaSolmu.annaIsa
+    	
+    	arvoIndeksi = isa.lisaaData(intB);
+    	int n = isa.annaKoko();
+    	
+    	for( int j=n-1; j>arvoIndeksi; j--){
+    		Solmu valiaikainen = isa.irroitaLapsi(j);
+    		isa.yhdistaLapsi(j+1, valiaikainen);
+    	}
+    	
+    	isa.yhdistaLapsi(arvoIndeksi+1, uusiOikea);
+    	
+    	uusiOikea.lisaaData(intC);
+    	uusiOikea.yhdistaLapsi(0, lapsi2);
+    	uusiOikea.yhdistaLapsi(1, lapsi3);
     }
 
     /**
