@@ -1,5 +1,5 @@
 package kakskolnelpuu;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 
 /**
@@ -8,16 +8,17 @@ import java.util.LinkedList;
  */
 public class Solmu {
 
-	private LinkedList<Object> arvot;
-	private Solmu isa;
+    private int koko;
+    private Solmu isa;
+    private ArrayList<Solmu> lapset = new ArrayList<Solmu>();
+    private ArrayList<Integer> arvot = new ArrayList<Integer>();
 
     /**
      * Solmun konstruktori, käytetään useimmissa tapauksissa.
      * @param isasolmu
      * @param arvo
      */
-	public Solmu(Solmu isasolmu, Object arvo){
-		arvot = new LinkedList<Object>();
+	public Solmu(Solmu isasolmu, Integer arvo){
 		arvot.add(arvo);
 		isa = isasolmu;
 	}
@@ -26,8 +27,7 @@ public class Solmu {
      * Konstruktori, joka luo puun juurisolmun.
      * @param arvo
      */
-	public Solmu(Object arvo){
-		arvot = new LinkedList<Object>();
+	public Solmu(Integer arvo){
 		arvot.add(arvo);
 		isa = null;
 	}
@@ -37,28 +37,67 @@ public class Solmu {
      * @param isasolmu
      */
     public Solmu(Solmu isasolmu){
-        arvot = new LinkedList<Object>();
         arvot.add(null);
         isa = isasolmu;
+    }
+
+    /**
+     * Lisää solmun lapsen
+     * @param indeksi
+     * @param lapsi
+     */
+    public void yhdistaLapsi(int indeksi, Solmu lapsi) {
+        lapset.add(indeksi,lapsi);
+        if(lapsi != null)
+            lapsi.isa = this;
+    }
+
+    /**
+     * Irrottaa ja palauttaa solmun lapsen
+     * @param indeksi
+     * @return irrotettu solmu
+     */
+    public Solmu irroitaLapsi(int indeksi) {
+        Solmu valiaikaisSolmu = lapset.get(indeksi);
+        lapset.set(indeksi, null);
+        return valiaikaisSolmu;
     }
 
 
 
     // Setterit ja getterit //
 
-    public LinkedList<Object> getArvot() {
+    public ArrayList<Integer> annaArvot() {
 		return arvot;
 	}
 
-	public void setArvot(LinkedList<Object> arvot) {
+	public void asetaArvot(ArrayList<Integer> arvot) {
 		this.arvot = arvot;
 	}
 
-	public Solmu getIsa() {
+	public Solmu annaIsa() {
 		return isa;
 	}
 
-	public void setIsa(Solmu isa) {
+	public void asetaIsa(Solmu isa) {
 		this.isa = isa;
 	}
+
+    public Solmu annaLapsi(int indeksi) {
+        return lapset.get(indeksi);
+    }
+
+    public boolean onkoLehti() {
+        return lapset.isEmpty();
+    }
+
+    public int annaKoko() {
+        return koko;
+    }
+
+    public Integer annaArvo(int indeksi) {
+        return arvot.get(indeksi);
+    }
+
+    public boolean onkoTaysi()
 }
