@@ -25,10 +25,9 @@ public class Solmu {
 
     /**
      * Konstruktori, joka luo puun juurisolmun.
-     * @param arvo
      */
-	public Solmu(Integer arvo){
-		arvot.add(arvo);
+	public Solmu(){
+		arvot.add(null);
 		isa = null;
 	}
 
@@ -69,7 +68,7 @@ public class Solmu {
      * @param avain
      * @return
      */
-    public int loydaArvo(Integer avain) {
+    public int etsiArvo(Integer avain) {
         for (int j=0; j<3; j++) {
             if (arvot.get(j)==null)
                 break;

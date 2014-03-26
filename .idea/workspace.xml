@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7c82aec-ff4e-4a34-8b20-d97e04e32f6e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kakskolnelpuu/Puu.java" afterPath="$PROJECT_DIR$/src/kakskolnelpuu/Puu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java" afterPath="$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java" />
     </list>
     <ignored path="TRAK2Ryhmarama.iws" />
@@ -65,43 +66,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Puu.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Puu.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Puu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="2145">
-              <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
-              <folding>
-                <marker date="1395837684000" expanded="true" signature="293:322" placeholder="/**...*/" />
-                <marker date="1395837684000" expanded="true" signature="1466:1556" placeholder="/**...*/" />
-              </folding>
+            <state vertical-scroll-proportion="-1.3793104" vertical-offset="1240" max-vertical-offset="1965">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Solmu.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Solmu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5586207" vertical-offset="1365" max-vertical-offset="2475">
-              <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="2220">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="e#279#286#0" expanded="true" />
                 <element signature="e#342#351#0" expanded="true" />
-                <element signature="e#2937#2938#0" expanded="true" />
-                <element signature="e#2956#2957#0" expanded="true" />
-                <element signature="e#3009#3010#0" expanded="true" />
-                <element signature="e#3034#3035#0" expanded="true" />
-                <element signature="e#3061#3062#0" expanded="true" />
-                <element signature="e#3078#3079#0" expanded="true" />
-                <element signature="e#3114#3115#0" expanded="true" />
-                <element signature="e#3135#3136#0" expanded="true" />
-                <element signature="e#3178#3179#0" expanded="true" />
-                <element signature="e#3220#3221#0" expanded="true" />
-                <element signature="e#3254#3255#0" expanded="true" />
-                <element signature="e#3293#3294#0" expanded="true" />
-                <element signature="e#3322#3323#0" expanded="true" />
-                <element signature="e#3349#3350#0" expanded="true" />
-                <element signature="e#3393#3394#0" expanded="true" />
-                <element signature="e#3434#3435#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,6 +102,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/src/kakskolnelpuu/Puu.java" />
         <option value="$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java" />
       </list>
     </option>
@@ -360,41 +343,22 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Puu.java">
+    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="2145">
-          <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="2220">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <marker date="1395837684000" expanded="true" signature="293:322" placeholder="/**...*/" />
-            <marker date="1395837684000" expanded="true" signature="1466:1556" placeholder="/**...*/" />
+            <element signature="e#279#286#0" expanded="true" />
+            <element signature="e#342#351#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java">
+    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Puu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5586207" vertical-offset="1365" max-vertical-offset="2475">
-          <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
-          <folding>
-            <element signature="e#279#286#0" expanded="true" />
-            <element signature="e#342#351#0" expanded="true" />
-            <element signature="e#2937#2938#0" expanded="true" />
-            <element signature="e#2956#2957#0" expanded="true" />
-            <element signature="e#3009#3010#0" expanded="true" />
-            <element signature="e#3034#3035#0" expanded="true" />
-            <element signature="e#3061#3062#0" expanded="true" />
-            <element signature="e#3078#3079#0" expanded="true" />
-            <element signature="e#3114#3115#0" expanded="true" />
-            <element signature="e#3135#3136#0" expanded="true" />
-            <element signature="e#3178#3179#0" expanded="true" />
-            <element signature="e#3220#3221#0" expanded="true" />
-            <element signature="e#3254#3255#0" expanded="true" />
-            <element signature="e#3293#3294#0" expanded="true" />
-            <element signature="e#3322#3323#0" expanded="true" />
-            <element signature="e#3349#3350#0" expanded="true" />
-            <element signature="e#3393#3394#0" expanded="true" />
-            <element signature="e#3434#3435#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-1.3793104" vertical-offset="1240" max-vertical-offset="1965">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>

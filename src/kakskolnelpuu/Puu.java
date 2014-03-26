@@ -20,56 +20,51 @@ public class Puu {
     /**
      * Tyhjän puun konstruktori, loput tehdään metodeilla.
      */
-	public Puu() {
-        taso = new List<Solmu>();
-        puu = new Map<Integer, List<Solmu>>();
-	}
+	public Puu(){}
 	
     /**
      * Kommentti
      */
      
-    public int etsi(Integer){
+    public int etsi(Integer avain){
     	Solmu nykyinenSolmu = root;
     	int lapsiIndeksi;
     	while (true)
     	 {
-    	 	if((lapsiIndeksi=nykyinenSolmu.etsiArvo(Integer)) != -1)
+    	 	if((lapsiIndeksi=nykyinenSolmu.etsiArvo(avain)) != -1)
     	 		return lapsiIndeksi;
     	 	else if(nykyinenSolmu.onkoLehti())
     	 		return -1;
     	 	else
-    	 		nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, Integer);
+    	 		nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, avain);
     	 }
     }
     
     /**
-     * Lisää syötetyn arvon oikeaan paikkaan puussa, ja
-     * toteuttaa mahdolliset korjausoperaatiot.
+     * Etsii solmun johon syötetty arvo kuuluu,
+     * ja lisää sen sinne Solmu-luokan metodia käyttäen.
      * @param arvo
      */
-
-    
-    public void lisaaSolmu(Integer hessu){
+    public void lisaa(Integer arvo){
     	Solmu nykyinenSolmu = root;
     	
     	while(true){
     		if(nykyinenSolmu.onkoTaysi())
     			{
-    			halkaise(nykyinenSolmu);
-    			nykyinenSolmu = nykyinenSolmu.haeIsa();
+    			halkaiseSolmu(nykyinenSolmu);
+    			nykyinenSolmu = nykyinenSolmu.annaIsa();
     				
-    			nykyinenSolmu = haeSeuraavaLapsi(nykyinenSolmu, hessu);
+    			nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, arvo);
     			}
     			
     		else if(nykyinenSolmu.onkoLehti())
     			break;
     		
     		else
-    			nykyinenSolmu = haeSeuraavaLapsi(nykyinenSolmu, hessu);
+    			nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, arvo);
     	}
     	
-    	nykyinenSolmu.lisaaData(hessu);
+    	nykyinenSolmu.lisaaArvo(arvo);
     }
     
     /**
@@ -81,23 +76,23 @@ public class Puu {
     	Solmu isa, lapsi2, lapsi3;
     	int arvoIndeksi;
     	
-    	intC = tamaSolmu.poistaData();
-    	intB = tamaSolmu.poistaData();
-    	lapsi2 = tamaSolmu.irroitaLapsi();
-    	lapsi3 = tama.Solmu.irroitaLapsi();
+    	intC = nykyinenSolmu.poistaArvo();
+    	intB = nykyinenSolmu.poistaArvo();
+    	lapsi2 = nykyinenSolmu.irroitaLapsi();
+    	lapsi3 = nykyinenSolmu.irroitaLapsi();
     	
     	Solmu uusiOikea = new Solmu();
     	
-    	if(tamaSolmu==root){
-    		root = uusi Solmu();
+    	if(nykyinenSolmu==root){
+    		root = new Solmu();
     		isa = root;
-    		root.yhdistaLapsi(0, tamaSolmu);
+    		root.yhdistaLapsi(0, nykyinenSolmu);
     	}
     	
     	else
-    		isa = tamaSolmu.annaIsa
+    		isa = nykyinenSolmu.annaIsa();
     	
-    	arvoIndeksi = isa.lisaaData(intB);
+    	arvoIndeksi = isa.lisaaArvo(intB);
     	int n = isa.annaKoko();
     	
     	for( int j=n-1; j>arvoIndeksi; j--){
@@ -107,7 +102,7 @@ public class Puu {
     	
     	isa.yhdistaLapsi(arvoIndeksi+1, uusiOikea);
     	
-    	uusiOikea.lisaaData(intC);
+    	uusiOikea.lisaaArvo(intC);
     	uusiOikea.yhdistaLapsi(0, lapsi2);
     	uusiOikea.yhdistaLapsi(1, lapsi3);
     }
@@ -116,7 +111,7 @@ public class Puu {
      * Hei
      */
     
-    public Solmu haeSeuraavaLapsi(Solmu nykyinenSolmu, Integer nykyinenArvo){
+    public Solmu etsiSeuraavaLapsi(Solmu nykyinenSolmu, Integer nykyinenArvo){
     	int j;
     	
     	int koko = nykyinenSolmu.annaKoko();
@@ -128,15 +123,4 @@ public class Puu {
     		return nykyinenSolmu.annaLapsi(j);
     	}
     }
-
-    // Setterit ja getterit //
-
-	public Map<Integer,List<Solmu>> getPuu() {
-		return puu;
-	}
-
-	public void setPuu(Map<Integer,List<Solmu>> puu) {
-		this.puu = puu;
-	}
-	
 }
