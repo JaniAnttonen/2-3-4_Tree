@@ -63,7 +63,50 @@ public class Solmu {
         return valiaikaisSolmu;
     }
 
+    /**
+     * Etsii syötettyä avainta vastaavan arvon solmusta ja
+     * palauttaa sen indeksin solmussa.
+     * @param avain
+     * @return
+     */
+    public int loydaArvo(Integer avain) {
+        for (int j=0; j<3; j++) {
+            if (arvot.get(j)==null)
+                break;
+            else if (arvot.get(j)==avain)
+                return j;
+        }
+        return -1;
+    }
 
+    /**
+     * Lisää uuden arvon Solmuun.
+     *
+     * Tekee vertailuja nykyisiin arvoihin ja
+     * asettaa uuden oikeaan paikkaan näiden perusteella.
+     * @param uusiArvo
+     * @return
+     */
+    public int lisaaArvo(Integer uusiArvo) {
+        koko++;
+
+        for (int j=2; j>=0; j--) {
+            if (arvot.get(j)==null)
+                continue;
+            else {
+                Integer muistiArvo = arvot.get(j);
+                if (uusiArvo < muistiArvo)
+                    arvot.set(j+1,muistiArvo);
+                else {
+                    arvot.set(j+1,uusiArvo);
+                    return j+1;
+                }
+            }
+        }
+
+        arvot.set(0,uusiArvo);
+        return 0;
+    }
 
     // Setterit ja getterit //
 
