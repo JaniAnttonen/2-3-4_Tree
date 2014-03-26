@@ -18,13 +18,6 @@ public class Puu {
     private Solmu root = new Solmu();
 
     /**
-     * Muuttujat, jotka sisältävät tiedot puun syvyydestä ja solmut yhteyksineen.
-     * (Solmun yhteyksien toteutus tapahtuu Solmu-luokassa)
-     */
-    private List<Solmu> taso;
-	private Map<Integer, List<Solmu>> puu;
-
-    /**
      * Tyhjän puun konstruktori, loput tehdään metodeilla.
      */
 	public Puu() {
@@ -77,15 +70,6 @@ public class Puu {
     	}
     	
     	nykyinenSolmu.lisaaData(hessu);
-    }
-    
-     /**
-     * Poistaa syötetyn arvon puusta (ei välitä duplikaateista),
-     * ja toteuttaa mahdolliset korjausoperaatiot.
-     * @param arvo
-     */
-    public void poistaSolmu(Integer arvo) {
-
     }
     
     /**
