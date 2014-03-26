@@ -82,6 +82,8 @@ public class Solmu {
     /**
      * Lisää uuden arvon Solmuun.
      *
+     * Oletetaan, että solmu ei ole täysi.
+     *
      * Tekee vertailuja nykyisiin arvoihin ja
      * asettaa uuden oikeaan paikkaan näiden perusteella.
      * @param uusiArvo
@@ -106,6 +108,17 @@ public class Solmu {
 
         arvot.set(0,uusiArvo);
         return 0;
+    }
+
+    /**
+     * Poistaa Solmun suurimman arvon ja palauttaa sen
+     * @return Integer poistettu arvo
+     */
+    public Integer poistaArvo() {
+        Integer valiaikainen = arvot.get(koko-1);
+        arvot.set(koko-1,null);
+        koko--;
+        return valiaikainen;
     }
 
     // Setterit ja getterit //
