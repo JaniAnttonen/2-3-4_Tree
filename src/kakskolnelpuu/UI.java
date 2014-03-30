@@ -53,8 +53,8 @@ public class UI extends JFrame{
 		// Adding button1
 		button1 = new JButton("Add");
 		button1.setToolTipText("Adds a value to the tree");
-		ListenForButton lForButton = new ListenForButton();
-		button1.addActionListener(lForButton);
+//		ListenForButton lForButton = new ListenForButton();
+//		button1.addActionListener(lForButton);
 		firstPanel.add(button1);
 
 		// Adding a textfield
@@ -89,25 +89,25 @@ public class UI extends JFrame{
 	}
 
 	// Main entry point for this example
-	public static void main( String args[] )
+/*	public static void main( String args[] )
 	{
 		// Create an instance of the test application
 		UI mainFrame	= new UI("1");
 		mainFrame.setVisible( true );
-	}
+	} */
 
-	private class ListenForButton implements ActionListener{
-
-		public void actionPerformed(ActionEvent e){
-
-			if(e.getSource() == button1){
-				if(textField1.getText()!=null){
-					
-					DefaultMutableTreeNode newNode = addNode(textField1.getText(), DERVATER);
-				}
-			}
-		}
-	}
+//	private class ListenForButton implements ActionListener{
+//
+//		public void actionPerformed(ActionEvent e){
+//
+//			if(e.getSource() == button1){
+//				if(textField1.getText()!=null){
+//					
+//					DefaultMutableTreeNode newNode = addNode(textField1.getText(), DERVATER);
+//				}
+//			}
+//		}
+//	}
 	private DefaultMutableTreeNode addNode(String fileName, DefaultMutableTreeNode parentNode){
 		DefaultMutableTreeNode newFile = new DefaultMutableTreeNode(fileName);
 		parentNode.add(newFile);

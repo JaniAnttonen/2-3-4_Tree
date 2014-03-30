@@ -26,7 +26,7 @@ public class Puu {
 	 * Kommentti
 	 */
 
-	public int etsi(Integer avain){
+	public Integer etsi(Integer avain){
 		Solmu nykyinenSolmu = root;
 		int lapsiIndeksi;
 		while (true)
@@ -41,12 +41,13 @@ public class Puu {
 	}
 
 	/**
-	 * Etsii solmun johon syötetty arvo kuuluu,
+	 * Etsii puusta solmun johon syötetty arvo kuuluu,
 	 * ja lisää sen sinne Solmu-luokan metodia käyttäen.
 	 * @param arvo
 	 */
 	public void lisaaArvoPuuhun(Integer arvo){
 		Solmu nykyinenSolmu = root;
+		System.out.println(root);
 		nykyinenSolmu = etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
 		nykyinenSolmu.lisaaArvo(arvo);
 		
@@ -54,7 +55,14 @@ public class Puu {
 		
 
 	}
-	
+	/**
+	 * Etsii puusta solmun, johon voi lisätä annetun arvon.
+	 * 
+	 * @author Arttu Laitinen
+	 * @param nykyinenSolmu
+	 * @param arvo
+	 * @return Solmu
+	 */
 	public Solmu etsiSolmuJohonVoiLisataArvon(Solmu nykyinenSolmu, int arvo){
 		
 		if (nykyinenSolmu.onkoLehti()){
@@ -71,26 +79,27 @@ public class Puu {
 	 * Hei
 	 */
 
-	public void halkaiseSolmu(Solmu nykyinenSolmu){
+	public void halkaiseSolmu(Solmu halkaistavaSolmu){
 		Integer intB, intC;
 		Solmu isa, lapsi2, lapsi3;
 		int arvoIndeksi;
 
-		intC = nykyinenSolmu.poistaArvo();
-		intB = nykyinenSolmu.poistaArvo();
-		lapsi3 = nykyinenSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillä 2
-		lapsi2 = nykyinenSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillä 1
+		intC = halkaistavaSolmu.poistaArvo();
+		intB = halkaistavaSolmu.poistaArvo();
+		System.out.println(halkaistavaSolmu.annaLapset().size());
+		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillä 2
+		lapsi2 = halkaistavaSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillä 1
 
 		Solmu uusiOikea = new Solmu();
 
-		if(nykyinenSolmu==root){
+		if(halkaistavaSolmu==root){
 			root = new Solmu();
 			isa = root;
-			root.yhdistaLapsi(0, nykyinenSolmu);
+			root.yhdistaLapsi(0, halkaistavaSolmu);
 		}
 
 		else
-			isa = nykyinenSolmu.annaIsa();
+			isa = halkaistavaSolmu.annaIsa();
 
 		arvoIndeksi = isa.lisaaArvo(intB);
 		int n = isa.annaArvot().size();
@@ -108,7 +117,11 @@ public class Puu {
 	}
 
 	/**
-	 * Hei
+	 * Etsii lapsista oikean solmun
+	 * 
+	 * @param nykyinenSolmu
+	 * @param vertailtavaArvo
+	 * @return
 	 */
 
 	public Solmu etsiSeuraavaLapsi(Solmu nykyinenSolmu, Integer vertailtavaArvo){
