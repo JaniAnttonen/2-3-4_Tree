@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 
 /**
- * Solmu-luokka, jota k√§ytet√§√§n 2-3-4 -puun yksitt√§isen solmun yll√§pitoon.
+ * Solmu-luokka, jota k‰ytet‰‰n 2-3-4 -puun yksitt√§isen solmun yll‰pitoon.
  * @author Jani Anttonen
  */
 public class Solmu {
@@ -14,7 +14,7 @@ public class Solmu {
     private ArrayList<Integer> arvot = new ArrayList<Integer>();
 
     /**
-     * Solmun konstruktori, k√§ytet√§√§n useimmissa tapauksissa.
+     * Solmun konstruktori, k‰ytet‰‰n useimmissa tapauksissa.
      * @param isasolmu
      * @param arvo
      */
@@ -41,7 +41,7 @@ public class Solmu {
     }
 
     /**
-     * Lis√§√§ solmun lapsen
+     * Lis‰‰ solmun lapsen
      * @param indeksi
      * @param lapsi
      */
@@ -154,8 +154,10 @@ public class Solmu {
         return arvot.get(indeksi);
     }
 
-   //Implementointi puuttuu viel‰! 
     public boolean onkoTaysi(){
+    	if (arvot.size()+1 < lapset.size()){
+    		return false;
+    	}
     	return true;
     }
 }
