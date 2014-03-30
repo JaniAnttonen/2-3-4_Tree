@@ -154,5 +154,8 @@ public class Solmu {
         return arvot.get(indeksi);
     }
 
-    public boolean onkoTaysi(){}
+   //Implementointi puuttuu vielä! 
+    public boolean onkoTaysi(){
+    	return true;
+    }
 }
