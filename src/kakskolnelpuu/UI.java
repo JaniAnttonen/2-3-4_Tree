@@ -76,8 +76,8 @@ public class UI extends JFrame{
 		// Adding the tree
 		DefaultMutableTreeNode juuriSolmu = new DefaultMutableTreeNode(juuri);
 		tree = new JTree(juuriSolmu);
-		TreeSelectionListener kaboom = new TreeSelectionListener();
-		tree.addTreeSelectionListener(kaboom);
+		//TreeSelectionListener kaboom = new TreeSelectionListener();
+		//tree.addTreeSelectionListener(kaboom);
 
 
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
@@ -103,7 +103,7 @@ public class UI extends JFrame{
 			if(e.getSource() == button1){
 				if(textField1.getText()!=null){
 					
-					DefaultMutableTreeNode newNode = addNode(textField1.getText(), root);
+					DefaultMutableTreeNode newNode = addNode(textField1.getText(), DERVATER);
 				}
 			}
 		}

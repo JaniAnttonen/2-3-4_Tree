@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Solmu {
 
-    private int koko;
+  
     private Solmu isa;
     private ArrayList<Solmu> lapset = new ArrayList<Solmu>();
     private ArrayList<Integer> arvot = new ArrayList<Integer>();
@@ -89,7 +89,6 @@ public class Solmu {
      * @return
      */
     public int lisaaArvo(Integer uusiArvo) {
-        koko++;
 
         for (int j=2; j>=0; j--) {
             if (arvot.get(j)==null)
@@ -114,9 +113,8 @@ public class Solmu {
      * @return Integer poistettu arvo
      */
     public Integer poistaArvo() {
-        Integer valiaikainen = arvot.get(koko-1);
-        arvot.set(koko-1,null);
-        koko--;
+        Integer valiaikainen = arvot.get(arvot.size()-1);
+        arvot.remove(arvot.size()-1);
         return valiaikainen;
     }
 
@@ -124,6 +122,10 @@ public class Solmu {
 
     public ArrayList<Integer> annaArvot() {
 		return arvot;
+	}
+    
+    public ArrayList<Solmu> annaLapset() {
+		return lapset;
 	}
 
 	public void asetaArvot(ArrayList<Integer> arvot) {
@@ -146,9 +148,7 @@ public class Solmu {
         return lapset.isEmpty();
     }
 
-    public int annaKoko() {
-        return koko;
-    }
+    
 
     public Integer annaArvo(int indeksi) {
         return arvot.get(indeksi);
