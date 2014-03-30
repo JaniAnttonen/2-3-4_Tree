@@ -154,5 +154,5 @@ public class Solmu {
         return arvot.get(indeksi);
     }
 
-    public boolean onkoTaysi()
+    public boolean onkoTaysi(){}
 }
