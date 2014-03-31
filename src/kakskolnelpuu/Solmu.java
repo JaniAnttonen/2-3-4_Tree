@@ -15,7 +15,7 @@ public class Solmu {
 	private ArrayList<Integer> arvot = new ArrayList<Integer>();
 
     // Joku häröily sunnuntailta 30.3.
-	private static int testinumero = 2;
+	// private static int testinumero = 2;
 
 	/**
 	 * Lis�� solmun lapsen
@@ -58,9 +58,9 @@ public class Solmu {
 	 * palauttaa sen indeksin solmussa.
      * @pre avain != null
 	 * @param avain etsittävä arvo
-	 * @return -1, jos arvoa ei löytynyt nykyisestä solmusta, 0 tai suurempi, jos avainta vastaava arvo löytyi.
+	 * @return -1, jos arvoa ei löytynyt nykyisestä solmusta, 0 tai suurempi (indeksi), jos avainta vastaava arvo löytyi.
 	 */
-	public int etsiArvo(Integer avain) {
+	public int etsiArvo(int avain) {
 
         // Iteroidaan arvot läpi.
         for (int j=0; j<3; j++) {
@@ -88,7 +88,7 @@ public class Solmu {
 	 *
 	 * Tekee vertailuja nykyisiin arvoihin ja
 	 * asettaa uuden arvon oikeaan paikkaan n�iden perusteella.
-     * @pre Integer uusiArvo != null
+     * @pre int uusiArvo != null
 	 * @param uusiArvo
 	 * @return indeksi, johon arvo lisättiin
 	 */
@@ -126,8 +126,8 @@ public class Solmu {
 		else {
 
             // Oletetaan vanhojen arvojen olevan suuruusjärjestyksessä
-			int isompiVanhaArvo = arvot.get(1);
-			int pienempiVanhaArvo = arvot.get(0);
+			Integer isompiVanhaArvo = arvot.get(1);
+			Integer pienempiVanhaArvo = arvot.get(0);
 
             // Jos uusi arvo on suurempi kuin kumpikaan aiemmista arvoista
 			if (uusiArvo>isompiVanhaArvo){
@@ -170,7 +170,7 @@ public class Solmu {
 
 	/**
 	 * Poistaa Solmun suurimman arvon ja palauttaa sen
-	 * @return Integer poistettu arvo
+	 * @return int poistettu arvo
 	 */
 	public Integer poistaArvo() {
 
@@ -229,7 +229,7 @@ public class Solmu {
 		return lapset.isEmpty();
 	}
 
-	public Integer annaArvo(int indeksi) {
+	public int annaArvo(int indeksi) {
 		return arvot.get(indeksi);
 	}
 }

@@ -11,7 +11,12 @@ public class Puu {
 
 	private Solmu root = new Solmu();
 
-	public Integer etsi(Integer avain){
+    /**
+     * Iteroi puuta kunnes löytää solmusta etsityn avaimen.
+     * @param avain
+     * @return 
+     */
+	public int etsi(int avain){
 		Solmu nykyinenSolmu = root;
 		int lapsiIndeksi;
 		while (true)
@@ -30,16 +35,14 @@ public class Puu {
 	 * ja lis�� sen sinne Solmu-luokan metodia k�ytt�en.
 	 * @param arvo
 	 */
-	public void lisaaArvoPuuhun(Integer arvo){
+	public void lisaaArvoPuuhun(int arvo){
 		Solmu nykyinenSolmu = root;
+        Integer arv = new Integer(arvo);
 		System.out.println(root);
 		nykyinenSolmu = etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
-		nykyinenSolmu.lisaaArvo(arvo);
-		
-		
-		
-
+		nykyinenSolmu.lisaaArvo(arv);
 	}
+
 	/**
 	 * Etsii puusta solmun, johon voi lis�t� annetun arvon.
 	 * 
@@ -58,6 +61,7 @@ public class Puu {
 		}
 		else nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, arvo);
 		return etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
+
 	}
 
 	public void halkaiseSolmu(Solmu halkaistavaSolmu){
@@ -105,14 +109,15 @@ public class Puu {
 	 * @return
 	 */
 
-	public Solmu etsiSeuraavaLapsi(Solmu nykyinenSolmu, Integer vertailtavaArvo){
-		int j;
+	public Solmu etsiSeuraavaLapsi(Solmu nykyinenSolmu, int vertailtavaArvo){
+		int j=0;
 
 		int koko = nykyinenSolmu.annaArvot().size();
-		for(j=0; j<koko; j++){
+		while(j<koko){
 			if(vertailtavaArvo < nykyinenSolmu.annaArvo(j)){
 				return nykyinenSolmu.annaLapsi(j);
 			}
+            j++;
 		}
 		return nykyinenSolmu.annaLapsi(j);
 	}
