@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7c82aec-ff4e-4a34-8b20-d97e04e32f6e" name="Default" comment="" />
+    <list default="true" id="f7c82aec-ff4e-4a34-8b20-d97e04e32f6e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="TRAK2Ryhmarama.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,28 +78,9 @@
       <file leaf-file-name="Solmu.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.8697789" vertical-offset="0" max-vertical-offset="3630">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="3390">
               <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-              <folding>
-                <element signature="e#376#383#0" expanded="true" />
-                <element signature="e#437#446#0" expanded="true" />
-                <element signature="e#5110#5111#0" expanded="true" />
-                <element signature="e#5129#5130#0" expanded="true" />
-                <element signature="e#5170#5171#0" expanded="true" />
-                <element signature="e#5190#5191#0" expanded="true" />
-                <element signature="e#5243#5244#0" expanded="true" />
-                <element signature="e#5268#5269#0" expanded="true" />
-                <element signature="e#5295#5296#0" expanded="true" />
-                <element signature="e#5312#5313#0" expanded="true" />
-                <element signature="e#5348#5349#0" expanded="true" />
-                <element signature="e#5369#5370#0" expanded="true" />
-                <element signature="e#5409#5410#0" expanded="true" />
-                <element signature="e#5442#5443#0" expanded="true" />
-                <element signature="e#5473#5474#0" expanded="true" />
-                <element signature="e#5503#5504#0" expanded="true" />
-                <element signature="e#5544#5545#0" expanded="true" />
-                <element signature="e#5576#5577#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,9 +90,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1255" max-vertical-offset="1875">
               <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,7 +98,7 @@
       <file leaf-file-name="Testiluokka.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Testiluokka.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="435">
               <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding />
             </state>
@@ -147,7 +128,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1280" />
-    <option name="height" value="717" />
+    <option name="height" value="715" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -176,7 +157,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -215,6 +195,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,6 +245,14 @@
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
     <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
       <module name="" />
       <setting name="path" value="" />
@@ -277,12 +266,17 @@
       <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -310,19 +304,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -359,19 +340,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -390,6 +358,19 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
     <configuration default="false" name="Application" type="Application" factoryName="Application">
@@ -434,8 +415,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="717" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1280" height="715" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -447,19 +428,19 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38271606" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38271606" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -490,6 +471,38 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Puu.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1995">
+          <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="3630">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1875">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Testiluokka.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="435">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Puu.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="1965">
           <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
           <folding />
@@ -500,26 +513,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="2460">
           <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding>
-            <element signature="e#376#383#0" expanded="true" />
-            <element signature="e#437#446#0" expanded="true" />
-            <element signature="e#5110#5111#0" expanded="true" />
-            <element signature="e#5129#5130#0" expanded="true" />
-            <element signature="e#5170#5171#0" expanded="true" />
-            <element signature="e#5190#5191#0" expanded="true" />
-            <element signature="e#5243#5244#0" expanded="true" />
-            <element signature="e#5268#5269#0" expanded="true" />
-            <element signature="e#5295#5296#0" expanded="true" />
-            <element signature="e#5312#5313#0" expanded="true" />
-            <element signature="e#5348#5349#0" expanded="true" />
-            <element signature="e#5369#5370#0" expanded="true" />
-            <element signature="e#5409#5410#0" expanded="true" />
-            <element signature="e#5442#5443#0" expanded="true" />
-            <element signature="e#5473#5474#0" expanded="true" />
-            <element signature="e#5503#5504#0" expanded="true" />
-            <element signature="e#5544#5545#0" expanded="true" />
-            <element signature="e#5576#5577#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -535,9 +529,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="420">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -545,26 +537,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="2220">
           <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding>
-            <element signature="e#376#383#0" expanded="true" />
-            <element signature="e#437#446#0" expanded="true" />
-            <element signature="e#5110#5111#0" expanded="true" />
-            <element signature="e#5129#5130#0" expanded="true" />
-            <element signature="e#5170#5171#0" expanded="true" />
-            <element signature="e#5190#5191#0" expanded="true" />
-            <element signature="e#5243#5244#0" expanded="true" />
-            <element signature="e#5268#5269#0" expanded="true" />
-            <element signature="e#5295#5296#0" expanded="true" />
-            <element signature="e#5312#5313#0" expanded="true" />
-            <element signature="e#5348#5349#0" expanded="true" />
-            <element signature="e#5369#5370#0" expanded="true" />
-            <element signature="e#5409#5410#0" expanded="true" />
-            <element signature="e#5442#5443#0" expanded="true" />
-            <element signature="e#5473#5474#0" expanded="true" />
-            <element signature="e#5503#5504#0" expanded="true" />
-            <element signature="e#5544#5545#0" expanded="true" />
-            <element signature="e#5576#5577#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -580,9 +553,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="420">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -590,26 +561,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1495" max-vertical-offset="2220">
           <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding>
-            <element signature="e#376#383#0" expanded="true" />
-            <element signature="e#437#446#0" expanded="true" />
-            <element signature="e#5110#5111#0" expanded="true" />
-            <element signature="e#5129#5130#0" expanded="true" />
-            <element signature="e#5170#5171#0" expanded="true" />
-            <element signature="e#5190#5191#0" expanded="true" />
-            <element signature="e#5243#5244#0" expanded="true" />
-            <element signature="e#5268#5269#0" expanded="true" />
-            <element signature="e#5295#5296#0" expanded="true" />
-            <element signature="e#5312#5313#0" expanded="true" />
-            <element signature="e#5348#5349#0" expanded="true" />
-            <element signature="e#5369#5370#0" expanded="true" />
-            <element signature="e#5409#5410#0" expanded="true" />
-            <element signature="e#5442#5443#0" expanded="true" />
-            <element signature="e#5473#5474#0" expanded="true" />
-            <element signature="e#5503#5504#0" expanded="true" />
-            <element signature="e#5544#5545#0" expanded="true" />
-            <element signature="e#5576#5577#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -625,9 +577,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="420">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -635,26 +585,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="798" max-vertical-offset="2220">
           <caret line="156" column="32" selection-start-line="156" selection-start-column="32" selection-end-line="156" selection-end-column="32" />
-          <folding>
-            <element signature="e#376#383#0" expanded="true" />
-            <element signature="e#437#446#0" expanded="true" />
-            <element signature="e#5110#5111#0" expanded="true" />
-            <element signature="e#5129#5130#0" expanded="true" />
-            <element signature="e#5170#5171#0" expanded="true" />
-            <element signature="e#5190#5191#0" expanded="true" />
-            <element signature="e#5243#5244#0" expanded="true" />
-            <element signature="e#5268#5269#0" expanded="true" />
-            <element signature="e#5295#5296#0" expanded="true" />
-            <element signature="e#5312#5313#0" expanded="true" />
-            <element signature="e#5348#5349#0" expanded="true" />
-            <element signature="e#5369#5370#0" expanded="true" />
-            <element signature="e#5409#5410#0" expanded="true" />
-            <element signature="e#5442#5443#0" expanded="true" />
-            <element signature="e#5473#5474#0" expanded="true" />
-            <element signature="e#5503#5504#0" expanded="true" />
-            <element signature="e#5544#5545#0" expanded="true" />
-            <element signature="e#5576#5577#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -662,9 +593,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1255" max-vertical-offset="1875">
           <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -696,28 +625,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.8697789" vertical-offset="0" max-vertical-offset="3630">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="3390">
           <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding>
-            <element signature="e#376#383#0" expanded="true" />
-            <element signature="e#437#446#0" expanded="true" />
-            <element signature="e#5110#5111#0" expanded="true" />
-            <element signature="e#5129#5130#0" expanded="true" />
-            <element signature="e#5170#5171#0" expanded="true" />
-            <element signature="e#5190#5191#0" expanded="true" />
-            <element signature="e#5243#5244#0" expanded="true" />
-            <element signature="e#5268#5269#0" expanded="true" />
-            <element signature="e#5295#5296#0" expanded="true" />
-            <element signature="e#5312#5313#0" expanded="true" />
-            <element signature="e#5348#5349#0" expanded="true" />
-            <element signature="e#5369#5370#0" expanded="true" />
-            <element signature="e#5409#5410#0" expanded="true" />
-            <element signature="e#5442#5443#0" expanded="true" />
-            <element signature="e#5473#5474#0" expanded="true" />
-            <element signature="e#5503#5504#0" expanded="true" />
-            <element signature="e#5544#5545#0" expanded="true" />
-            <element signature="e#5576#5577#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
