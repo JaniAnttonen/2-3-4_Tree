@@ -86,8 +86,11 @@ public class Puu {
 		else
 			isa = halkaistavaSolmu.annaIsa();
 
+        // Lisätään halkaistun solmun keskimmäisin arvo isäsolmuun ja otetaan sen indeksi isäsolmussa.
 		arvoIndeksi = isa.lisaaArvo(intB);
+        // Mikä on isäsolmun koko?
 		int n = isa.annaArvot().size();
+
 
 		for( int j=n-1; j>arvoIndeksi; j--){
 			Solmu valiaikainen = isa.irroitaLapsi(j);

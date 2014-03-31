@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Solmu {
 
-    // Ei varmaan aivan välttämätön, mutta vois kuitenkin varmaan nopeuttaa esim. käänteistä iterointia.
+    // Ei varmaan aivan välttämätön, mutta nopeuttaa käänteistä iterointia.
 	private Solmu isa;
 
     // Listat jotka sisältävät solmun rakenteen.
