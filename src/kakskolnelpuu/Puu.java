@@ -9,12 +9,11 @@ package kakskolnelpuu;
  */
 public class Puu {
 
-<<<<<<< HEAD
 	/**
 	 * Kommentti
 	 */
 
-	private Solmu root;
+	
 
 	/**
 	 * Tyhjän puun konstruktori, loput tehdään metodeilla.
@@ -28,7 +27,7 @@ public class Puu {
 	 */
 
 	public Integer etsi(Integer avain){
-=======
+
 	private Solmu root = new Solmu();
 
     /**
@@ -37,7 +36,6 @@ public class Puu {
      * @return 
      */
 	public int etsi(int avain){
->>>>>>> 8bb9a618dba6ee0c6008b862bca9d5ebba221359
 		Solmu nykyinenSolmu = root;
 		int lapsiIndeksi;
 		while (true)
@@ -92,15 +90,13 @@ public class Puu {
 
 		intC = halkaistavaSolmu.poistaArvo();
 		intB = halkaistavaSolmu.poistaArvo();
-<<<<<<< HEAD
+
 		System.out.println("lasten määrä = "+halkaistavaSolmu.annaLapset().size());
-		lapsi3 = halkaistavaSolmu.irroitaLapsi(0); 
-		lapsi2 = halkaistavaSolmu.irroitaLapsi(0);
-=======
+		
 		System.out.println(halkaistavaSolmu.annaLapset().size());
 		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillï¿½ 2
 		lapsi2 = halkaistavaSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillï¿½ 1
->>>>>>> 8bb9a618dba6ee0c6008b862bca9d5ebba221359
+
 
 		Solmu uusiOikea = new Solmu();
 
@@ -113,8 +109,11 @@ public class Puu {
 		else
 			isa = halkaistavaSolmu.annaIsa();
 
+        // LisÃ¤tÃ¤Ã¤n halkaistun solmun keskimmÃ¤isin arvo isÃ¤solmuun ja otetaan sen indeksi isÃ¤solmussa.
 		arvoIndeksi = isa.lisaaArvo(intB);
+        // MikÃ¤ on isÃ¤solmun koko?
 		int n = isa.annaArvot().size();
+
 
 		for( int j=n-1; j>arvoIndeksi; j--){
 			Solmu valiaikainen = isa.irroitaLapsi(j);

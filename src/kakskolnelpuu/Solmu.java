@@ -7,14 +7,13 @@ import java.util.ArrayList;
  */
 public class Solmu {
 
-    // Ei varmaan aivan välttämätön, mutta vois kuitenkin varmaan nopeuttaa esim. käänteistä iterointia.
+    // Ei varmaan aivan välttämätön, mutta nopeuttaa käänteistä iterointia.
 	private Solmu isa;
 
     // Listat jotka sisältävät solmun rakenteen.
 	private ArrayList<Solmu> lapset = new ArrayList<Solmu>();
 	private ArrayList<Integer> arvot = new ArrayList<Integer>();
 
-<<<<<<< HEAD
 	private static int testinumero = 2;
 
 	/**
@@ -48,10 +47,7 @@ public class Solmu {
 		arvot.add(null);
 		isa = isasolmu;
 	}
-=======
-    // Joku häröily sunnuntailta 30.3.
-	// private static int testinumero = 2;
->>>>>>> 8bb9a618dba6ee0c6008b862bca9d5ebba221359
+
 
 	/**
 	 * Lis�� solmun lapsen
@@ -123,14 +119,9 @@ public class Solmu {
 	 * Oletetaan, että solmu ei ole täysi.
 	 *
 	 * Tekee vertailuja nykyisiin arvoihin ja
-<<<<<<< HEAD
 	 * asettaa uuden arvon oikeaan paikkaan n�iden perusteella.
-	 * @pre solmu johon lis�t��n uusi arvo on lehtisolmu ja siin� on tilaa uudelle datalle
+	 * @pre solmu johon lis�t��n uusi arvo on lehtisolmu ja siin� on tilaa uudelle datalle, int uusiArvo != null
 	 * @post solmussa olevat arvot ovat suuruusj�rjestyksess�
-=======
-	 * asettaa uuden arvon oikeaan paikkaan n�iden perusteella.
-     * @pre int uusiArvo != null
->>>>>>> 8bb9a618dba6ee0c6008b862bca9d5ebba221359
 	 * @param uusiArvo
 	 * @return indeksi, johon arvo lisättiin
 	 */
