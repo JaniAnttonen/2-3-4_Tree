@@ -15,12 +15,14 @@ public class Puu {
 	 * Kommentti
 	 */
 
-	private Solmu root = new Solmu();
+	private Solmu root;
 
 	/**
 	 * Tyhj‰n puun konstruktori, loput tehd‰‰n metodeilla.
 	 */
-	public Puu(){}
+	public Puu(int arvo){
+		root = new Solmu(arvo);
+	}
 
 	/**
 	 * Kommentti
@@ -45,7 +47,7 @@ public class Puu {
 	 * ja lis‰‰ sen sinne Solmu-luokan metodia k‰ytt‰en.
 	 * @param arvo
 	 */
-	public void lisaaArvoPuuhun(Integer arvo){
+	public void lisaaArvoPuuhun(int arvo){
 		Solmu nykyinenSolmu = root;
 		System.out.println(root);
 		nykyinenSolmu = etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
@@ -86,9 +88,9 @@ public class Puu {
 
 		intC = halkaistavaSolmu.poistaArvo();
 		intB = halkaistavaSolmu.poistaArvo();
-		System.out.println(halkaistavaSolmu.annaLapset().size());
-		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksill‰ 2
-		lapsi2 = halkaistavaSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksill‰ 1
+		System.out.println("lasten m‰‰r‰ = "+halkaistavaSolmu.annaLapset().size());
+		lapsi3 = halkaistavaSolmu.irroitaLapsi(0); 
+		lapsi2 = halkaistavaSolmu.irroitaLapsi(0);
 
 		Solmu uusiOikea = new Solmu();
 

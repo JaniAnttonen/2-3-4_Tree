@@ -28,10 +28,15 @@ public class Solmu {
 	/**
 	 * Konstruktori, joka luo puun juurisolmun.
 	 */
-	public Solmu(){
-		//		arvot.add(null);
+	public Solmu(int arvo){
+		arvot.add(arvo);
 		isa = null;
 	}
+	public Solmu(){
+		//arvot.add(arvo);
+		isa = null;
+	}
+	
 
 	/**
 	 * Konstruktori, jota k√§ytet√§√§n tyhj√§n null-solmun luomiseen.
@@ -65,7 +70,7 @@ public class Solmu {
 	}
 
 	/**
-	 * Etsii sy√∂tetty√§ avainta vastaavan arvon solmusta ja
+	 * Etsii syˆtetty‰ avainta vastaavan arvon solmusta ja
 	 * palauttaa sen indeksin solmussa.
 	 * @param avain
 	 * @return
@@ -87,6 +92,8 @@ public class Solmu {
 	 *
 	 * Tekee vertailuja nykyisiin arvoihin ja
 	 * asettaa uuden arvon oikeaan paikkaan n‰iden perusteella.
+	 * @pre solmu johon lis‰t‰‰n uusi arvo on lehtisolmu ja siin‰ on tilaa uudelle datalle
+	 * @post solmussa olevat arvot ovat suuruusj‰rjestyksess‰
 	 * @param uusiArvo
 	 * @return
 	 */
