@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7c82aec-ff4e-4a34-8b20-d97e04e32f6e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kakskolnelpuu/Puu.java" afterPath="$PROJECT_DIR$/src/kakskolnelpuu/Puu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java" afterPath="$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TRAK2Ryhmarama.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,21 +66,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Puu.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Puu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Puu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.2669903" vertical-offset="795" max-vertical-offset="1950">
-              <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="1950">
+              <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Solmu.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Solmu.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="3615">
-              <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+            <state vertical-scroll-proportion="5.6067963" vertical-offset="0" max-vertical-offset="3615">
+              <caret line="231" column="18" selection-start-line="231" selection-start-column="18" selection-end-line="231" selection-end-column="18" />
               <folding>
                 <element signature="e#405#412#0" expanded="true" />
                 <element signature="e#465#474#0" expanded="true" />
@@ -98,8 +98,8 @@
                 <element signature="e#5402#5403#0" expanded="true" />
                 <element signature="e#5433#5434#0" expanded="true" />
                 <element signature="e#5463#5464#0" expanded="true" />
-                <element signature="e#5500#5501#0" expanded="true" />
-                <element signature="e#5532#5533#0" expanded="true" />
+                <element signature="e#5504#5505#0" expanded="true" />
+                <element signature="e#5536#5537#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,8 +131,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/kakskolnelpuu/UI.java" />
-        <option value="$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java" />
         <option value="$PROJECT_DIR$/src/kakskolnelpuu/Puu.java" />
+        <option value="$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java" />
       </list>
     </option>
   </component>
@@ -507,8 +507,8 @@
             <element signature="e#5402#5403#0" expanded="true" />
             <element signature="e#5433#5434#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
-            <element signature="e#5500#5501#0" expanded="true" />
-            <element signature="e#5532#5533#0" expanded="true" />
+            <element signature="e#5504#5505#0" expanded="true" />
+            <element signature="e#5536#5537#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -552,8 +552,8 @@
             <element signature="e#5402#5403#0" expanded="true" />
             <element signature="e#5433#5434#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
-            <element signature="e#5500#5501#0" expanded="true" />
-            <element signature="e#5532#5533#0" expanded="true" />
+            <element signature="e#5504#5505#0" expanded="true" />
+            <element signature="e#5536#5537#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -597,8 +597,8 @@
             <element signature="e#5402#5403#0" expanded="true" />
             <element signature="e#5433#5434#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
-            <element signature="e#5500#5501#0" expanded="true" />
-            <element signature="e#5532#5533#0" expanded="true" />
+            <element signature="e#5504#5505#0" expanded="true" />
+            <element signature="e#5536#5537#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -642,8 +642,8 @@
             <element signature="e#5402#5403#0" expanded="true" />
             <element signature="e#5433#5434#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
-            <element signature="e#5500#5501#0" expanded="true" />
-            <element signature="e#5532#5533#0" expanded="true" />
+            <element signature="e#5504#5505#0" expanded="true" />
+            <element signature="e#5536#5537#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -658,10 +658,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Puu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="1950">
+          <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Solmu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3615">
-          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        <state vertical-scroll-proportion="5.6067963" vertical-offset="0" max-vertical-offset="3615">
+          <caret line="231" column="18" selection-start-line="231" selection-start-column="18" selection-end-line="231" selection-end-column="18" />
           <folding>
             <element signature="e#405#412#0" expanded="true" />
             <element signature="e#465#474#0" expanded="true" />
@@ -679,17 +687,9 @@
             <element signature="e#5402#5403#0" expanded="true" />
             <element signature="e#5433#5434#0" expanded="true" />
             <element signature="e#5463#5464#0" expanded="true" />
-            <element signature="e#5500#5501#0" expanded="true" />
-            <element signature="e#5532#5533#0" expanded="true" />
+            <element signature="e#5504#5505#0" expanded="true" />
+            <element signature="e#5536#5537#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kakskolnelpuu/Puu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.2669903" vertical-offset="795" max-vertical-offset="1950">
-          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>

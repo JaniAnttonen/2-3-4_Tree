@@ -229,7 +229,7 @@ public class Solmu {
 		return lapset.isEmpty();
 	}
 
-	public int annaArvo(int indeksi) {
+	public Integer annaArvo(int indeksi) {
 		return arvot.get(indeksi);
 	}
 }
