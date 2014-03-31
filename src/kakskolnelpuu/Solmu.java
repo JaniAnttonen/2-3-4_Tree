@@ -1,13 +1,11 @@
 package kakskolnelpuu;
 import java.util.ArrayList;
 
-
 /**
- * Solmu-luokka, jota käytetään 2-3-4 -puun yksittÃ¤isen solmun ylläpitoon.
+ * Solmu-luokka, jota kï¿½ytetï¿½ï¿½n 2-3-4 -puun yksittÃ¤isen solmun yllï¿½pitoon.
  * @author Jani Anttonen
  */
 public class Solmu {
-
 
 	private Solmu isa;
 	private ArrayList<Solmu> lapset = new ArrayList<Solmu>();
@@ -16,34 +14,7 @@ public class Solmu {
 	private static int testinumero = 2;
 
 	/**
-	 * Solmun konstruktori, käytetään useimmissa tapauksissa.
-	 * @param isasolmu
-	 * @param arvo
-	 */
-	public Solmu(Solmu isasolmu, Integer arvo){
-		arvot.add(arvo);
-		isa = isasolmu;
-	}
-
-	/**
-	 * Konstruktori, joka luo puun juurisolmun.
-	 */
-	public Solmu(){
-		//		arvot.add(null);
-		isa = null;
-	}
-
-	/**
-	 * Konstruktori, jota kÃ¤ytetÃ¤Ã¤n tyhjÃ¤n null-solmun luomiseen.
-	 * @param isasolmu
-	 */
-	public Solmu(Solmu isasolmu){
-		arvot.add(null);
-		isa = isasolmu;
-	}
-
-	/**
-	 * Lisää solmun lapsen
+	 * Lisï¿½ï¿½ solmun lapsen
 	 * @param indeksi
 	 * @param lapsi
 	 */
@@ -86,7 +57,7 @@ public class Solmu {
 	 * Oletetaan, ettÃ¤ solmu ei ole tÃ¤ysi.
 	 *
 	 * Tekee vertailuja nykyisiin arvoihin ja
-	 * asettaa uuden arvon oikeaan paikkaan näiden perusteella.
+	 * asettaa uuden arvon oikeaan paikkaan nï¿½iden perusteella.
 	 * @param uusiArvo
 	 * @return
 	 */
@@ -97,10 +68,16 @@ public class Solmu {
 			return 0;
 		}
 		else if(arvot.size()==1){
-			int vanhaArvo=arvot.get(0);
-			if(uusiArvo<vanhaArvo){
+
+			if(uusiArvo<arvot.get(0)){
+
+                // SiirtÃ¤Ã¤ vanhan ja suuremman arvon oikealle listassa.
+                arvot.add(1, arvot.get(0));
+
+                // Ylikirjoitetaan vanha arvo indeksissÃ¤ 0 uudella arvolla.
 				arvot.set(0, uusiArvo);
-				arvot.add(vanhaArvo);
+
+                // Derp
 				return 0;
 			}
 			else arvot.add(uusiArvo);
@@ -124,9 +101,7 @@ public class Solmu {
 				arvot.set(1, pienempiVanhaArvo);
 				arvot.set(0, uusiArvo);
 				return 0;
-
 			}
-
 		}
 
 	}
@@ -137,10 +112,18 @@ public class Solmu {
 	 */
 	public Integer poistaArvo() {
 
-		return testinumero++;
-		//        Integer valiaikainen = arvot.get(0);
-		//        arvot.remove(0);
-		//        return valiaikainen;
+        /*
+         * Solmu-luokka asettaa suurimman arvon oikealle (viimeiseksi),
+         * joten poistetaan viimeisen indeksin arvo.
+         */
+		Integer valiaikainen = arvot.get(arvot.size()-1);
+
+        // Poistetaan arvo, kun se on muistissa
+		arvot.remove(arvot.size()-1);
+
+        // Palautetaan poistettu arvo kÃ¤yttÃ¤jÃ¤lle.
+	    return valiaikainen;
+
 	}
 
 	// Setterit ja getterit //
@@ -172,8 +155,6 @@ public class Solmu {
 	public boolean onkoLehti() {
 		return lapset.isEmpty();
 	}
-
-
 
 	public Integer annaArvo(int indeksi) {
 		return arvot.get(indeksi);

@@ -1,30 +1,15 @@
 package kakskolnelpuu;
-import java.util.Map;
-import java.util.List;
 
 /**
  * 2-3-4 -puun rakennetta yllÃ¤pitÃ¤vÃ¤ luokka.
- * Lisäys-, korjaus- ja poisto-operaatioiden toteutus yhteistyössä Solmu-luokan kanssa.
+ * Lisï¿½ys-, korjaus- ja poisto-operaatioiden toteutus yhteistyï¿½ssï¿½ Solmu-luokan kanssa.
  *
  * @author Jani Anttonen
- * @author Miika Länsi-Seppänen
+ * @author Miika Lï¿½nsi-Seppï¿½nen
  */
 public class Puu {
 
-	/**
-	 * Kommentti
-	 */
-
 	private Solmu root = new Solmu();
-
-	/**
-	 * Tyhjän puun konstruktori, loput tehdään metodeilla.
-	 */
-	public Puu(){}
-
-	/**
-	 * Kommentti
-	 */
 
 	public Integer etsi(Integer avain){
 		Solmu nykyinenSolmu = root;
@@ -41,8 +26,8 @@ public class Puu {
 	}
 
 	/**
-	 * Etsii puusta solmun johon syötetty arvo kuuluu,
-	 * ja lisää sen sinne Solmu-luokan metodia käyttäen.
+	 * Etsii puusta solmun johon syï¿½tetty arvo kuuluu,
+	 * ja lisï¿½ï¿½ sen sinne Solmu-luokan metodia kï¿½yttï¿½en.
 	 * @param arvo
 	 */
 	public void lisaaArvoPuuhun(Integer arvo){
@@ -56,7 +41,7 @@ public class Puu {
 
 	}
 	/**
-	 * Etsii puusta solmun, johon voi lisätä annetun arvon.
+	 * Etsii puusta solmun, johon voi lisï¿½tï¿½ annetun arvon.
 	 * 
 	 * @author Arttu Laitinen
 	 * @param nykyinenSolmu
@@ -75,10 +60,6 @@ public class Puu {
 		return etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
 	}
 
-	/**
-	 * Hei
-	 */
-
 	public void halkaiseSolmu(Solmu halkaistavaSolmu){
 		Integer intB, intC;
 		Solmu isa, lapsi2, lapsi3;
@@ -87,8 +68,8 @@ public class Puu {
 		intC = halkaistavaSolmu.poistaArvo();
 		intB = halkaistavaSolmu.poistaArvo();
 		System.out.println(halkaistavaSolmu.annaLapset().size());
-		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillä 2
-		lapsi2 = halkaistavaSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillä 1
+		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillï¿½ 2
+		lapsi2 = halkaistavaSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillï¿½ 1
 
 		Solmu uusiOikea = new Solmu();
 

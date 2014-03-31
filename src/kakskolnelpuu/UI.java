@@ -9,11 +9,10 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
- * 2-3-4 -puun graafinen käyttöliittymä.
+ * 2-3-4 -puun graafinen kï¿½yttï¿½liittymï¿½.
  * @author Arttu Laitinen
  */
 public class UI extends JFrame{
-
 
 
 	// Instance attributes used in this example
@@ -30,7 +29,7 @@ public class UI extends JFrame{
 		
 		
 		// Set the frame characteristics
-		setTitle( "Graphic user interface" );
+		setTitle( "Graphical user interface" );
 		setSize( 400, 400 );
 
 		setLocationRelativeTo(null);
@@ -89,12 +88,12 @@ public class UI extends JFrame{
 	}
 
 	// Main entry point for this example
-/*	public static void main( String args[] )
+		public static void main( String args[] )
 	{
 		// Create an instance of the test application
 		UI mainFrame	= new UI("1");
 		mainFrame.setVisible( true );
-	} */
+	}
 
 //	private class ListenForButton implements ActionListener{
 //
