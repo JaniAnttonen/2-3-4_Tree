@@ -7,49 +7,79 @@ import java.util.ArrayList;
  */
 public class Solmu {
 
+    // Ei varmaan aivan välttämätön, mutta vois kuitenkin varmaan nopeuttaa esim. käänteistä iterointia.
 	private Solmu isa;
+
+    // Listat jotka sisältävät solmun rakenteen.
 	private ArrayList<Solmu> lapset = new ArrayList<Solmu>();
 	private ArrayList<Integer> arvot = new ArrayList<Integer>();
 
+    // Joku häröily sunnuntailta 30.3.
 	private static int testinumero = 2;
 
 	/**
 	 * Lis�� solmun lapsen
+     * @pre indeksi < lapset.size() && arvot.size()==lapset.size()
 	 * @param indeksi
 	 * @param lapsi
 	 */
 	public void yhdistaLapsi(int indeksi, Solmu lapsi) {
+
+        // Lisätään lapsisolmu määritettyyn indeksiin
 		lapset.add(indeksi,lapsi);
-		if(lapsi != null)
-			lapsi.isa = this;
+
+        // Mitä tässä tehdään? No fucking clue
+        if(lapsi != null)
+			lapsi.asetaIsa(this);
+
 	}
 
 	/**
 	 * Irrottaa ja palauttaa solmun lapsen
+     * @pre indeksi < lapset.size()
 	 * @param indeksi
 	 * @return irrotettu solmu
 	 */
 	public Solmu irroitaLapsi(int indeksi) {
+
+        // Tallennetaan indeksistä löytyvä lapsisolmu palautusta varten
 		Solmu valiaikaisSolmu = lapset.get(indeksi);
+
+        // Irrotetaan lapsisolmu indeksistä
 		lapset.remove(indeksi);
+
+        // Palauttaa irrotetun lapsisolmun
 		return valiaikaisSolmu;
+
 	}
 
 	/**
 	 * Etsii syötettyä avainta vastaavan arvon solmusta ja
 	 * palauttaa sen indeksin solmussa.
-	 * @param avain
-	 * @return
+     * @pre avain != null
+	 * @param avain etsittävä arvo
+	 * @return -1, jos arvoa ei löytynyt nykyisestä solmusta, 0 tai suurempi, jos avainta vastaava arvo löytyi.
 	 */
 	public int etsiArvo(Integer avain) {
-		for (int j=0; j<3; j++) {
+
+        // Iteroidaan arvot läpi.
+        for (int j=0; j<3; j++) {
+
+            // Jos indeksillä ei ole arvoa, lopetetaan for-lausekkeen suoritus.
 			if (arvot.get(j)==null)
 				break;
+
+            // Jos arvolle löytyi vastaavuus, palautetaan sen indeksi.
 			else if (arvot.get(j)==avain)
 				return j;
+
 		}
+
+        // Arvoa ei löytynyt, palautetaan -1
 		return -1;
+
 	}
+
 
 	/**
 	 * Lisää uuden arvon Solmuun.
@@ -58,49 +88,81 @@ public class Solmu {
 	 *
 	 * Tekee vertailuja nykyisiin arvoihin ja
 	 * asettaa uuden arvon oikeaan paikkaan n�iden perusteella.
+     * @pre Integer uusiArvo != null
 	 * @param uusiArvo
-	 * @return
+	 * @return indeksi, johon arvo lisättiin
 	 */
 	public int lisaaArvo(Integer uusiArvo) {
 
+        // Jos solmu on tyhjä lehtisolmu, ei siirtoja tarvitse tehdä ennen lisäystä.
 		if(arvot.size()==0){
 			arvot.add(uusiArvo);
 			return 0;
 		}
+
+        // Jos solmussa on yksi arvo
 		else if(arvot.size()==1){
 
+            // Jos uusi arvo on pienempi kuin solmun nykyinen arvo
 			if(uusiArvo<arvot.get(0)){
 
-                // Siirtää vanhan ja suuremman arvon oikealle listassa.
-                arvot.add(1, arvot.get(0));
+                // Lisätään arvo listan alkuun. (Vanha siirtyy automaagisesti eteenpäin.)
+				arvot.add(0, uusiArvo);
 
-                // Ylikirjoitetaan vanha arvo indeksissä 0 uudella arvolla.
-				arvot.set(0, uusiArvo);
-
-                // Derp
+                // Palautetaan indeksi, johon arvo lisättiin
 				return 0;
+
 			}
+
+            // Ei tarvitse siirtää, lisätään listan perään.
 			else arvot.add(uusiArvo);
+
+            // Palautetaan indeksi, johon arvo lisättiin.
 			return 1;
+
 		}
+
+        // Jos solmussa on kaksi arvoa
 		else {
+
+            // Oletetaan vanhojen arvojen olevan suuruusjärjestyksessä
 			int isompiVanhaArvo = arvot.get(1);
 			int pienempiVanhaArvo = arvot.get(0);
+
+            // Jos uusi arvo on suurempi kuin kumpikaan aiemmista arvoista
 			if (uusiArvo>isompiVanhaArvo){
+
+                // Lisätään arvo listan perään, koska se on suurin.
 				arvot.add(uusiArvo);
+
+                /*
+                 * Indeksi 2 on suurin indeksi 2-3-4-puussa,
+                 * ja tässä tapauksessa uuden arvon indeksi.
+                 */
 				return 2;
+
 			}
-			else if(uusiArvo<isompiVanhaArvo && uusiArvo > pienempiVanhaArvo){
-				arvot.add(isompiVanhaArvo);
-				arvot.set(0, pienempiVanhaArvo);
-				arvot.set(1, uusiArvo);
+
+            // Tarkistetaan onko uusi arvo "keskikokoinen"
+			else if(uusiArvo > pienempiVanhaArvo){
+
+                // Lisätään uusi arvo listan keskelle
+				arvot.add(1, uusiArvo);
+
+                // Palautetaan indeksi johon uusi arvo lisättiin.
 				return 1;
+
 			}
+
+            // Jos uusi arvo tulee olemaan pienin solmun arvoista
 			else {
-				arvot.add(isompiVanhaArvo);
-				arvot.set(1, pienempiVanhaArvo);
-				arvot.set(0, uusiArvo);
+
+                // Lisätään uusi arvo listan alkuun.
+				arvot.add(0, uusiArvo);
+
+                // Palautetaan indeksi johon uusi arvo lisättiin.
 				return 0;
+
 			}
 		}
 
@@ -125,6 +187,17 @@ public class Solmu {
 	    return valiaikainen;
 
 	}
+
+    /**
+     * Tarkistaa, onko solmussa jo 3 arvoa.
+     * @return true = solmussa kolme arvoa, false = solmussa vähemmän kuin kolme arvoa.
+     */
+    public boolean onkoTaysi(){
+        if (arvot.size()+1 < lapset.size() && lapset.size()<=4){
+            return false;
+        }
+        return true;
+    }
 
 	// Setterit ja getterit //
 
@@ -158,12 +231,5 @@ public class Solmu {
 
 	public Integer annaArvo(int indeksi) {
 		return arvot.get(indeksi);
-	}
-
-	public boolean onkoTaysi(){
-		if (arvot.size()+1 < lapset.size() && lapset.size()<=4){
-			return false;
-		}
-		return true;
 	}
 }
