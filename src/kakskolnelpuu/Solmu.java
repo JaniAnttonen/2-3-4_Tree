@@ -11,43 +11,10 @@ public class Solmu {
 	private Solmu isa;
 
     // Listat jotka sis√§lt√§v√§t solmun rakenteen.
-	private ArrayList<Solmu> lapset = new ArrayList<Solmu>();
-	private ArrayList<Integer> arvot = new ArrayList<Integer>();
+	private ArrayList<Solmu> lapset = new ArrayList<Solmu>(4);
+	private ArrayList<Integer> arvot = new ArrayList<Integer>(3);
 
 	private static int testinumero = 2;
-
-	/**
-	 * Solmun konstruktori, k‰ytet‰‰n useimmissa tapauksissa.
-	 * @param isasolmu
-	 * @param arvo
-	 */
-	public Solmu(Solmu isasolmu, Integer arvo){
-		arvot.add(arvo);
-		isa = isasolmu;
-	}
-
-	/**
-	 * Konstruktori, joka luo puun juurisolmun.
-	 */
-	public Solmu(int arvo){
-		arvot.add(arvo);
-		isa = null;
-	}
-	public Solmu(){
-		//arvot.add(arvo);
-		isa = null;
-	}
-	
-
-	/**
-	 * Konstruktori, jota k√§ytet√§√§n tyhj√§n null-solmun luomiseen.
-	 * @param isasolmu
-	 */
-	public Solmu(Solmu isasolmu){
-		arvot.add(null);
-		isa = isasolmu;
-	}
-
 
 	/**
 	 * LisÔøΩÔøΩ solmun lapsen
@@ -86,7 +53,7 @@ public class Solmu {
 	}
 
 	/**
-	 * Etsii syˆtetty‰ avainta vastaavan arvon solmusta ja
+	 * Etsii syÔøΩtettyÔøΩ avainta vastaavan arvon solmusta ja
 	 * palauttaa sen indeksin solmussa.
      * @pre avain != null
 	 * @param avain etsitt√§v√§ arvo
@@ -95,14 +62,10 @@ public class Solmu {
 	public int etsiArvo(int avain) {
 
         // Iteroidaan arvot l√§pi.
-        for (int j=0; j<3; j++) {
-
-            // Jos indeksill√§ ei ole arvoa, lopetetaan for-lausekkeen suoritus.
-			if (arvot.get(j)==null)
-				break;
+        for (int j=0; j<arvot.size()-1; j++) {
 
             // Jos arvolle l√∂ytyi vastaavuus, palautetaan sen indeksi.
-			else if (arvot.get(j)==avain)
+			if (arvot.get(j)==avain)
 				return j;
 
 		}
@@ -119,13 +82,18 @@ public class Solmu {
 	 * Oletetaan, ett√§ solmu ei ole t√§ysi.
 	 *
 	 * Tekee vertailuja nykyisiin arvoihin ja
-	 * asettaa uuden arvon oikeaan paikkaan n‰iden perusteella.
-	 * @pre solmu johon lis‰t‰‰n uusi arvo on lehtisolmu ja siin‰ on tilaa uudelle datalle, int uusiArvo != null
-	 * @post solmussa olevat arvot ovat suuruusj‰rjestyksess‰
+	 * asettaa uuden arvon oikeaan paikkaan nÔøΩiden perusteella.
+	 * @pre solmu johon lisÔøΩtÔøΩÔøΩn uusi arvo on lehtisolmu ja siinÔøΩ on tilaa uudelle datalle, int uusiArvo != null
+	 * @post solmussa olevat arvot ovat suuruusjÔøΩrjestyksessÔøΩ
 	 * @param uusiArvo
 	 * @return indeksi, johon arvo lis√§ttiin
 	 */
 	public int lisaaArvo(Integer uusiArvo) {
+
+        if (lapset.size()==0) {
+            lapset.add(new Solmu());
+        }
+        lapset.add(new Solmu());
 
         // Jos solmu on tyhj√§ lehtisolmu, ei siirtoja tarvitse tehd√§ ennen lis√§yst√§.
 		if(arvot.size()==0){
@@ -197,8 +165,8 @@ public class Solmu {
 				return 0;
 
 			}
-		}
 
+        }
 	}
 
 	/**
@@ -226,10 +194,10 @@ public class Solmu {
      * @return true = solmussa kolme arvoa, false = solmussa v√§hemm√§n kuin kolme arvoa.
      */
     public boolean onkoTaysi(){
-        if (arvot.size()+1 < lapset.size() && lapset.size()<=4){
-            return false;
+        if (arvot.size()==3){
+            return true;
         }
-        return true;
+        return false;
     }
 
 	// Setterit ja getterit //

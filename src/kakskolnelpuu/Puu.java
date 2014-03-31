@@ -9,25 +9,6 @@ package kakskolnelpuu;
  */
 public class Puu {
 
-	/**
-	 * Kommentti
-	 */
-
-	
-
-	/**
-	 * Tyhjän puun konstruktori, loput tehdään metodeilla.
-	 */
-	public Puu(int arvo){
-		root = new Solmu(arvo);
-	}
-
-	/**
-	 * Kommentti
-	 */
-
-	public Integer etsi(Integer avain){
-
 	private Solmu root = new Solmu();
 
     /**
@@ -56,10 +37,8 @@ public class Puu {
 	 */
 	public void lisaaArvoPuuhun(int arvo){
 		Solmu nykyinenSolmu = root;
-        Integer arv = new Integer(arvo);
-		System.out.println(root);
 		nykyinenSolmu = etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
-		nykyinenSolmu.lisaaArvo(arv);
+		nykyinenSolmu.lisaaArvo(arvo);
 	}
 
 	/**
@@ -80,7 +59,6 @@ public class Puu {
 		}
 		else nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, arvo);
 		return etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
-
 	}
 
 	public void halkaiseSolmu(Solmu halkaistavaSolmu){
@@ -91,7 +69,7 @@ public class Puu {
 		intC = halkaistavaSolmu.poistaArvo();
 		intB = halkaistavaSolmu.poistaArvo();
 
-		System.out.println("lasten määrä = "+halkaistavaSolmu.annaLapset().size());
+		System.out.println("lasten mï¿½ï¿½rï¿½ = "+halkaistavaSolmu.annaLapset().size());
 		
 		System.out.println(halkaistavaSolmu.annaLapset().size());
 		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillï¿½ 2
@@ -134,12 +112,11 @@ public class Puu {
 	 * @param vertailtavaArvo
 	 * @return
 	 */
-
 	public Solmu etsiSeuraavaLapsi(Solmu nykyinenSolmu, int vertailtavaArvo){
 		int j=0;
 
 		int koko = nykyinenSolmu.annaArvot().size();
-		while(j<koko){
+		while(j<koko-1){
 			if(vertailtavaArvo < nykyinenSolmu.annaArvo(j)){
 				return nykyinenSolmu.annaLapsi(j);
 			}
