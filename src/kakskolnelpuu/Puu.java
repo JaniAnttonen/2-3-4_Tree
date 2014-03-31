@@ -1,16 +1,15 @@
 package kakskolnelpuu;
-import java.util.Map;
-import java.util.List;
 
 /**
  * 2-3-4 -puun rakennetta yllÃ¤pitÃ¤vÃ¤ luokka.
- * Lisäys-, korjaus- ja poisto-operaatioiden toteutus yhteistyössä Solmu-luokan kanssa.
+ * Lisï¿½ys-, korjaus- ja poisto-operaatioiden toteutus yhteistyï¿½ssï¿½ Solmu-luokan kanssa.
  *
  * @author Jani Anttonen
- * @author Miika Länsi-Seppänen
+ * @author Miika Lï¿½nsi-Seppï¿½nen
  */
 public class Puu {
 
+<<<<<<< HEAD
 	/**
 	 * Kommentti
 	 */
@@ -29,6 +28,16 @@ public class Puu {
 	 */
 
 	public Integer etsi(Integer avain){
+=======
+	private Solmu root = new Solmu();
+
+    /**
+     * Iteroi puuta kunnes lÃ¶ytÃ¤Ã¤ solmusta etsityn avaimen.
+     * @param avain
+     * @return 
+     */
+	public int etsi(int avain){
+>>>>>>> 8bb9a618dba6ee0c6008b862bca9d5ebba221359
 		Solmu nykyinenSolmu = root;
 		int lapsiIndeksi;
 		while (true)
@@ -43,22 +52,20 @@ public class Puu {
 	}
 
 	/**
-	 * Etsii puusta solmun johon syötetty arvo kuuluu,
-	 * ja lisää sen sinne Solmu-luokan metodia käyttäen.
+	 * Etsii puusta solmun johon syï¿½tetty arvo kuuluu,
+	 * ja lisï¿½ï¿½ sen sinne Solmu-luokan metodia kï¿½yttï¿½en.
 	 * @param arvo
 	 */
 	public void lisaaArvoPuuhun(int arvo){
 		Solmu nykyinenSolmu = root;
+        Integer arv = new Integer(arvo);
 		System.out.println(root);
 		nykyinenSolmu = etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
-		nykyinenSolmu.lisaaArvo(arvo);
-		
-		
-		
-
+		nykyinenSolmu.lisaaArvo(arv);
 	}
+
 	/**
-	 * Etsii puusta solmun, johon voi lisätä annetun arvon.
+	 * Etsii puusta solmun, johon voi lisï¿½tï¿½ annetun arvon.
 	 * 
 	 * @author Arttu Laitinen
 	 * @param nykyinenSolmu
@@ -75,11 +82,8 @@ public class Puu {
 		}
 		else nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, arvo);
 		return etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
-	}
 
-	/**
-	 * Hei
-	 */
+	}
 
 	public void halkaiseSolmu(Solmu halkaistavaSolmu){
 		Integer intB, intC;
@@ -88,9 +92,15 @@ public class Puu {
 
 		intC = halkaistavaSolmu.poistaArvo();
 		intB = halkaistavaSolmu.poistaArvo();
+<<<<<<< HEAD
 		System.out.println("lasten määrä = "+halkaistavaSolmu.annaLapset().size());
 		lapsi3 = halkaistavaSolmu.irroitaLapsi(0); 
 		lapsi2 = halkaistavaSolmu.irroitaLapsi(0);
+=======
+		System.out.println(halkaistavaSolmu.annaLapset().size());
+		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillï¿½ 2
+		lapsi2 = halkaistavaSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksillï¿½ 1
+>>>>>>> 8bb9a618dba6ee0c6008b862bca9d5ebba221359
 
 		Solmu uusiOikea = new Solmu();
 
@@ -126,14 +136,15 @@ public class Puu {
 	 * @return
 	 */
 
-	public Solmu etsiSeuraavaLapsi(Solmu nykyinenSolmu, Integer vertailtavaArvo){
-		int j;
+	public Solmu etsiSeuraavaLapsi(Solmu nykyinenSolmu, int vertailtavaArvo){
+		int j=0;
 
 		int koko = nykyinenSolmu.annaArvot().size();
-		for(j=0; j<koko; j++){
+		while(j<koko){
 			if(vertailtavaArvo < nykyinenSolmu.annaArvo(j)){
 				return nykyinenSolmu.annaLapsi(j);
 			}
+            j++;
 		}
 		return nykyinenSolmu.annaLapsi(j);
 	}
