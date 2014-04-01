@@ -256,6 +256,7 @@ public class Solmu {
         }
         return true;
 	}
+	
 
 	public Integer annaArvo(int indeksi) {
 		return arvot.get(indeksi);

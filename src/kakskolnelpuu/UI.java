@@ -9,10 +9,11 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
- * 2-3-4 -puun graafinen kï¿½yttï¿½liittymï¿½.
+ * 2-3-4-puun graafinen käyttöliittymä
  * @author Arttu Laitinen
+ *
  */
-public class UI extends JFrame{
+public class UI extends JFrame implements ActionListener{
 
 
 	// Instance attributes used in this example
@@ -23,11 +24,13 @@ public class UI extends JFrame{
 	private JButton		button1;
 	private JTextField	textField1;
 	private JTextField	textField2;
+	static Puu			puu = new Puu();
+	static DefaultMutableTreeNode juuriSolmu = new DefaultMutableTreeNode();
 
 	// Constructor of main frame
-	public UI(String juuri){
-		
-		
+	public UI(){
+
+
 		// Set the frame characteristics
 		setTitle( "Graphical user interface" );
 		setSize( 400, 400 );
@@ -52,61 +55,74 @@ public class UI extends JFrame{
 		// Adding button1
 		button1 = new JButton("Add");
 		button1.setToolTipText("Adds a value to the tree");
-//		ListenForButton lForButton = new ListenForButton();
-//		button1.addActionListener(lForButton);
+		button1.addActionListener(this);
 		firstPanel.add(button1);
 
 		// Adding a textfield
-		textField1 = new JTextField("Value", 10);
+		textField1 = new JTextField("", 10);
 		firstPanel.add(textField1);
 		textField1.requestFocus();
-		
-		// Adding a textfield
-				textField2 = new JTextField("Value", 10);
-				firstPanel.add(textField2);
-				
+
+		//		// Adding a textfield
+		//		textField2 = new JTextField("Value", 10);
+		//		firstPanel.add(textField2);
+
 
 		// Create a panel to hold the tree being built
 		treePanel = new JPanel();
 		Border secondPanelBorder = BorderFactory.createTitledBorder("Tree");
 		treePanel.setBorder(secondPanelBorder);
 		firstPanel.add( treePanel, BorderLayout.CENTER );
-		
+
 		// Adding the tree
-		DefaultMutableTreeNode juuriSolmu = new DefaultMutableTreeNode(juuri);
-		tree = new JTree(juuriSolmu);
-		//TreeSelectionListener kaboom = new TreeSelectionListener();
-		//tree.addTreeSelectionListener(kaboom);
 
-
+		
+		tree = new JTree();
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-
-		
-
 		treePanel.add(tree);
-		
-	}
 
+	}
 	// Main entry point for this example
-		public static void main( String args[] )
-	{
+	public static void main( String args[] ){
 		// Create an instance of the test application
-		UI mainFrame	= new UI("1");
+		UI mainFrame	= new UI();
 		mainFrame.setVisible( true );
+
+
+
+	}
+	
+	/**
+	 * Kun käyttäjä painaa button1-nappia, lisää metodi textField1:ssä olevan arvon puuhun.
+	 */
+	public void actionPerformed(ActionEvent e){
+
+		if(e.getSource() == button1){
+			if(textField1.getText()!=null){
+				int lisattavaArvo = Integer.parseInt(textField1.getText());
+				UI.puu.lisaaArvoPuuhun(lisattavaArvo);
+				System.out.println(lisattavaArvo);
+				
+				piirraLapsiSolmut(puu.annaJuuri());
+
+
+			}
+		}
 	}
 
-//	private class ListenForButton implements ActionListener{
-//
-//		public void actionPerformed(ActionEvent e){
-//
-//			if(e.getSource() == button1){
-//				if(textField1.getText()!=null){
-//					
-//					DefaultMutableTreeNode newNode = addNode(textField1.getText(), DERVATER);
-//				}
-//			}
-//		}
-//	}
+	public void piirraLapsiSolmut(Solmu solmu){
+		if (solmu.onkoLehti()==false){
+			for(int i = 0 ; i < solmu.annaLapset().size() ; i++){
+				String arvot = solmu.annaArvot().toString();
+				addNode(arvot, juuriSolmu);
+			}
+		}
+	}
+
+
+
+
+	
 	private DefaultMutableTreeNode addNode(String fileName, DefaultMutableTreeNode parentNode){
 		DefaultMutableTreeNode newFile = new DefaultMutableTreeNode(fileName);
 		parentNode.add(newFile);
