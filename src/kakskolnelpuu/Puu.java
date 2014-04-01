@@ -37,10 +37,20 @@ public class Puu {
 	 * @param arvo
 	 */
 	public void lisaaArvoPuuhun(int arvo){
+
+        // Lähdetään etsimään oikeaa paikkaa arvolle rootista
 		Solmu nykyinenSolmu = root;
+
+        // UI-tekstiä
         System.out.println("Lisätään arvo " + arvo);
+
+        // Etsitään arvolle oikea paikka puusta
 		nykyinenSolmu = etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
+
+        // Lisätään arvo edellisen komennon määrittämään paikkaan
 		nykyinenSolmu.lisaaArvo(arvo);
+
+        // Tulostetaan käyttäjälle polku nykyiseen puuhun
         System.out.println(nykyinenSolmu.toString());
 	}
 
@@ -53,7 +63,7 @@ public class Puu {
 	 * @return Solmu
 	 */
 	public Solmu etsiSolmuJohonVoiLisataArvon(Solmu nykyinenSolmu, int arvo){
-		
+
 		while (true) {
             if (nykyinenSolmu.onkoTaysi()) {
                 halkaiseSolmu(nykyinenSolmu);
@@ -69,17 +79,104 @@ public class Puu {
         return nykyinenSolmu;
 	}
 
+    /**
+     * Etsii puusta vastaavuutta syötetylle arvolle, poistaa sen ja
+     * suorittaa mahdolliset korjausoperaatiot.
+     * @param arvo
+     * @return true/false riippuen siitä, tapahtuiko poisto
+     */
+    public boolean poista(int arvo) {
+
+        // Lähdetään etsimään arvoa puun juurisolmusta lähtien.
+        Solmu nykyinenSolmu = root;
+        int lapsiIndeksi;
+
+        // Alustetaan apumuuttujat
+        Solmu arvonSolmu = nykyinenSolmu;
+        int arvoOsoite;
+
+        // Etsitään solmu jossa poistettava arvo sijaitsee.
+        while(true) {
+            lapsiIndeksi = nykyinenSolmu.etsiArvo(arvo);
+
+            /*
+             * Jos vastaavuus löytyi, otetaan koordinaatit
+             * ylös ja lopetetaan suoritus
+             */
+            if(lapsiIndeksi!=-1) {
+                arvoOsoite = lapsiIndeksi;
+                arvonSolmu = nykyinenSolmu;
+                break;
+            }
+
+            /*
+             * Jos kohdattu solmu on lehtisolmu,
+             * eikä samaa arvoa puusta löydetty, lopetetaan suoritus
+             */
+            else if(nykyinenSolmu.onkoLehti()) {
+                arvoOsoite = -1;
+                break;
+            }
+
+            // Nykyisestä solmusta ei löytynyt vastaavaa arvoa, jatketaan suoritusta
+            else
+                nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, arvo);
+        }
+
+        // Tulokseton etsintä, lopetetaan suoritus.
+        if (arvoOsoite==-1) {
+            System.out.println("Poistettavaa arvoa ei löytynyt puusta, ei muuteta mitään.");
+            return false;
+        }
+
+        /*
+         * Jos solmulla, jossa haettu/poistettava arvo sijaitsee,
+         * on lapsisolmuja, pitää korjausoperaatioita tehdä.
+         */
+        else if (!arvonSolmu.onkoLehti()) {
+            System.out.println("Poisto-operaatiota ei voida tehdä suoraan, tehdään korjauksia.");
+
+            // Haetaan poistettua arvoa lähin arvo
+            int seuraaja = etsiSeuraaja(arvonSolmu, arvo);
+        }
+
+        /*
+         * Jos solmu on lehti, jossa on enemmän kuin yksi arvo,
+         * voidaan siitä poistaa suoraan haluttu arvo ilman korjausoperaatioita.
+         */
+        else if(arvonSolmu.annaArvot().size()>1)
+                arvonSolmu.poistaArvo(arvoOsoite);
+
+
+        // Testausjutut ja palautus onnistuneesta poistosta.
+        System.out.println("Poistetaan arvo " + arvo);
+        System.out.println(arvonSolmu.toString());
+        return true;
+    }
+
+    /**
+     * Halkaisee syötetyn täyden solmun.
+     * @pre täysi halkaistavaSolmu
+     * @param halkaistavaSolmu
+     */
 	public void halkaiseSolmu(Solmu halkaistavaSolmu){
+
+        // Apumuuttujien alustusta
 		Integer intB, intC;
 		Solmu isa, lapsi2, lapsi3;
 		int arvoIndeksi;
 
+        /*
+         * Koska täysi solmu sisältää kolme arvoa,
+         * pitää kaksi niistä ottaa talteen halkaistaessa
+         */
 		intB = halkaistavaSolmu.poistaArvo();
 		intC = halkaistavaSolmu.poistaArvo();
 
-		//System.out.println("lasten m��r� = "+halkaistavaSolmu.annaLapset().size());
-		
-		//System.out.println(halkaistavaSolmu.annaLapset().size());
+		/*
+		 * Koska täysi solmu sisältää neljä lapsisolmua,
+		 * pitää kaksi niistä ottaa talteen halkaistaessa
+		 */
 		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksill� 2
 		lapsi2 = halkaistavaSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksill� 1
 
@@ -149,4 +246,12 @@ public class Puu {
          */
 		return nykyinenSolmu.annaLapsi(j);
 	}
+
+    public int etsiSeuraaja(Solmu nykyinenSolmu, int vertailtava) {
+return 1;
+    }
+
+    public Solmu annaJuuri() {
+        return root;
+    }
 }
