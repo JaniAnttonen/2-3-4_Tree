@@ -134,10 +134,24 @@ public class Puu {
          * on lapsisolmuja, pitää korjausoperaatioita tehdä.
          */
         else if (!arvonSolmu.onkoLehti()) {
+            System.out.println(arvonSolmu.toString());
             System.out.println("Poisto-operaatiota ei voida tehdä suoraan, tehdään korjauksia.");
 
-            // Haetaan poistettua arvoa lähin arvo
-            int seuraaja = etsiSeuraaja(arvonSolmu, arvo);
+            /*
+             * Jos solmussa on vain yksi arvo ja
+             * sillä on täten kaksi lapsisolmua
+             */
+            if (arvonSolmu.annaArvot().size()==1){
+                System.out.println(arvonSolmu.toString());
+            }
+
+            else{
+                // Haetaan poistettua arvoa lähin arvo
+                int seuraaja = etsiSeuraaja(arvonSolmu, arvo);
+                arvonSolmu.poistaArvo(arvoOsoite);
+                arvonSolmu.lisaaArvo(seuraaja);
+                System.out.println(arvonSolmu.toString());
+            }
         }
 
         /*
@@ -257,9 +271,38 @@ public class Puu {
 		return nykyinenSolmu.annaLapsi(j);
 	}
 
+    /**
+     * Etsii vertailtavaa arvoa seuraavan arvon puusta.
+     *
+     * Käytetään korjausoperaatioissa.
+     * @param nykyinenSolmu
+     * @param vertailtava
+     * @return seuraava arvo
+     */
     public int etsiSeuraaja(Solmu nykyinenSolmu, int vertailtava) {
+        int j;
+        /*
+         * Iteroidaan solmut nykyisestä aina lehtisolmuun,
+         * jossa seuraaja sijaitsee
+         */
+        while(true) {
+            j=0;
+            int koko = nykyinenSolmu.annaArvot().size();
 
-        return 0;
+            while(j<koko){
+
+                if (vertailtava < nykyinenSolmu.annaArvo(j))
+                    nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu,vertailtava);
+
+                j++;
+
+            }
+
+            if(nykyinenSolmu.onkoLehti())
+                break;
+        }
+        System.out.println(nykyinenSolmu.annaArvo(j));
+        return nykyinenSolmu.annaArvo(j);
     }
 
     /*

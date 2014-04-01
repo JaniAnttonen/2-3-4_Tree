@@ -3,9 +3,6 @@ package kakskolnelpuu;
 public class Testiluokka {
 
 	public static void main( String args[] ){
-		/*Solmu ebin = new Solmu();
-        ebin.lisaaArvo(4);
-        ebin.lisaaArvo(2);*/
 		Puu puu = new Puu();
 		puu.lisaaArvoPuuhun(10);
         puu.lisaaArvoPuuhun(20);
@@ -13,11 +10,11 @@ public class Testiluokka {
         puu.lisaaArvoPuuhun(40);
         puu.lisaaArvoPuuhun(50);
         puu.lisaaArvoPuuhun(22);
+        puu.poista(30);
         puu.poista(50);
-
-		int vastaus = puu.etsi(30);
+		//int vastaus = puu.etsi(30);
 		
-		System.out.println(vastaus);
+		//System.out.println(vastaus);
 	}
 	
 }

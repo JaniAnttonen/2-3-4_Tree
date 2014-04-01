@@ -174,8 +174,10 @@ public class Solmu {
 
 	/**
 	 * Poistaa Solmun suurimman arvon ja palauttaa sen
+     *
+     * KÄYTETÄÄN VAIN HALKAISUSSA
 	 * @return Integer poistettu arvo
-     * @post Käytetään 
+     * @post Käytetään halkaisun yhteydessä arvojen siirtelyssä
 	 */
 	public Integer poistaArvo() {
 
@@ -195,7 +197,10 @@ public class Solmu {
 
     /**
      * Poistaa arvon määritetystä indeksistä
+     *
+     * KÄYTETÄÄN POISTOSSA
      * @return Integer poistettu arvo
+     * @post käytettävä Puu-luokan poista-metodissa
      */
     public Integer poistaArvo(int IndX) {
         Integer valiaikainen = null;
@@ -256,12 +261,17 @@ public class Solmu {
         }
         return true;
 	}
-	
 
 	public Integer annaArvo(int indeksi) {
 		return arvot.get(indeksi);
 	}
 
+    /**
+     * Muodostaa tekstitulosteen puurakenteesta nykyiseen solmuun saakka.
+     *
+     * Käytetään testauksessa ennen kuin kunnollinen GUI saadaan implementoitua.
+     * @return tekstihöskä jossa puurakenne yhtä polkua pitkin
+     */
     public String toString() {
 
         String palautus = "";
