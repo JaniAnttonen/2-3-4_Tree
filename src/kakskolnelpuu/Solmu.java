@@ -63,14 +63,13 @@ public class Solmu {
 	 * @return -1, jos arvoa ei löytynyt nykyisestä solmusta, 0 tai suurempi (indeksi), jos avainta vastaava arvo löytyi.
 	 */
 	public int etsiArvo(int avain) {
-
+        int j=0;
         // Iteroidaan arvot läpi.
-        for (int j=0; j<arvot.size(); j++) {
-
+        for (Integer arvo:arvot) {
             // Jos arvolle löytyi vastaavuus, palautetaan sen indeksi.
-			if (arvot.get(j)==avain)
+			if (arvo==avain)
 				return j;
-
+            j++;
 		}
 
         // Arvoa ei löytynyt, palautetaan -1
@@ -221,12 +220,7 @@ public class Solmu {
      * Tarkistaa, onko solmussa jo 3 arvoa.
      * @return true = solmussa kolme arvoa, false = solmussa vähemmän kuin kolme arvoa.
      */
-    public boolean onkoTaysi(){
-        if (arvot.size()==3){
-            return true;
-        }
-        return false;
-    }
+    public boolean onkoTaysi(){ return(arvot.size()==3); }
 
 	// Setterit ja getterit //
 
@@ -273,7 +267,6 @@ public class Solmu {
      * @return tekstihöskä jossa puurakenne yhtä polkua pitkin
      */
     public String toString() {
-
         String palautus = "";
 
         if (annaIsa()!=null) {
@@ -290,21 +283,12 @@ public class Solmu {
 
         for(int i=0;i<arvot.size();++i){
             palautus += lapset.get(i).annaArvot().toString();
-
-            if (i==0)
-                palautus += " / ";
-            else
-                palautus += " | ";
-
+            palautus += i==0 ? " / ":" | ";
             palautus += arvot.get(i).toString();
-
-            if (i+1==arvot.size())
-                palautus += " \\ ";
-            else
-                palautus += " | ";
+            palautus += i+1==arvot.size() ? " \\ ":" | ";
         }
-        palautus += lapset.get(arvot.size()).annaArvot().toString();
 
+        palautus += lapset.get(arvot.size()).annaArvot().toString();
         return palautus;
 
     }

@@ -9,7 +9,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
- * 2-3-4-puun graafinen käyttöliittymä
+ * 2-3-4-puun graafinen kï¿½yttï¿½liittymï¿½
  * @author Arttu Laitinen
  *
  */
@@ -87,7 +87,7 @@ public class UI extends JFrame implements ActionListener{
 	}
 
 	/**
-	 * Kun käyttäjä painaa button1-nappia, lisää metodi textField1:ssä olevan arvon puuhun.
+	 * Kun kï¿½yttï¿½jï¿½ painaa button1-nappia, lisï¿½ï¿½ metodi textField1:ssï¿½ olevan arvon puuhun.
 	 */
 	public void actionPerformed(ActionEvent e){
 
@@ -104,8 +104,8 @@ public class UI extends JFrame implements ActionListener{
 		}
 	}
 	/**
-	 * Aloittaa JTree-rakenteen piirtämisen Puun mukaiseksi juuresta. 
-	 * JuuriNoden nimeksi haetaan Puun juuren arvojen toString-syöte.
+	 * Aloittaa JTree-rakenteen piirtï¿½misen Puun mukaiseksi juuresta. 
+	 * JuuriNoden nimeksi haetaan Puun juuren arvojen toString-syï¿½te.
 	 * @param juuriSolmu
 	 */
 	public void piirraPuu(Solmu juuriSolmu, DefaultMutableTreeNode juuriNode){
@@ -127,7 +127,7 @@ public class UI extends JFrame implements ActionListener{
 	}
 
 	public void piirraLapsiSolmut(Solmu isaSolmu, DefaultMutableTreeNode isaNode){
-		if (isaSolmu.onkoLehti()==false){
+		if (!isaSolmu.onkoLehti()){
 			for(int i = 0 ; i < isaSolmu.annaLapset().size() ; i++){
 				String arvot = isaSolmu.annaLapsi(i).annaArvot().toString();
 				addNode(arvot, isaNode);
