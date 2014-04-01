@@ -20,12 +20,10 @@ public class UI extends JFrame implements ActionListener{
 	private	JPanel		firstPanel;
 	private JPanel		treePanel;
 	private	JTree		tree;
-	private	JScrollPane scrollPane;
 	private JButton		button1;
 	private JTextField	textField1;
-	private JTextField	textField2;
 	static Puu			puu = new Puu();
-	static DefaultMutableTreeNode juuriSolmu = new DefaultMutableTreeNode();
+	static DefaultMutableTreeNode juuriNode = new DefaultMutableTreeNode();
 
 	// Constructor of main frame
 	public UI(){
@@ -63,22 +61,17 @@ public class UI extends JFrame implements ActionListener{
 		firstPanel.add(textField1);
 		textField1.requestFocus();
 
-		//		// Adding a textfield
-		//		textField2 = new JTextField("Value", 10);
-		//		firstPanel.add(textField2);
-
 
 		// Create a panel to hold the tree being built
 		treePanel = new JPanel();
 		Border secondPanelBorder = BorderFactory.createTitledBorder("Tree");
 		treePanel.setBorder(secondPanelBorder);
-		firstPanel.add( treePanel, BorderLayout.CENTER );
+		firstPanel.add( treePanel, BorderLayout.SOUTH );
 
 		// Adding the tree
 
 		
 		tree = new JTree();
-		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		treePanel.add(tree);
 
 	}
@@ -103,20 +96,28 @@ public class UI extends JFrame implements ActionListener{
 				UI.puu.lisaaArvoPuuhun(lisattavaArvo);
 				System.out.println(lisattavaArvo);
 				
-				piirraLapsiSolmut(puu.annaJuuri());
+				piirraLapsiSolmut(puu.annaJuuri(), juuriNode);
 
 
 			}
 		}
 	}
-
-	public void piirraLapsiSolmut(Solmu solmu){
-		if (solmu.onkoLehti()==false){
-			for(int i = 0 ; i < solmu.annaLapset().size() ; i++){
-				String arvot = solmu.annaArvot().toString();
-				addNode(arvot, juuriSolmu);
+/**
+ * 
+ * @param isaSolmu
+ */
+	public void piirraLapsiSolmut(Solmu isaSolmu, DefaultMutableTreeNode isaNode){
+		treePanel.remove(tree);
+		tree = new JTree(isaNode);
+		
+		if (isaSolmu.onkoLehti()==false){
+			for(int i = 0 ; i < isaSolmu.annaLapset().size() ; i++){
+				String arvot = isaSolmu.annaLapsi(i).annaArvot().toString();
+				addNode(arvot, isaNode);
 			}
 		}
+		treePanel.add(tree);
+		firstPanel.revalidate();
 	}
 
 
