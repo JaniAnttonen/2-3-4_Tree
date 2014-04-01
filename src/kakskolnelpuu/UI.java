@@ -11,7 +11,8 @@ import javax.swing.tree.TreeSelectionModel;
 /**
  * 2-3-4-puun graafinen käyttöliittymä
  * @author Arttu Laitinen
- *
+ * 
+ *Kokonaisuus ei vielä ihan toimi halutulla tavalla
  */
 public class UI extends JFrame implements ActionListener{
 
@@ -25,11 +26,11 @@ public class UI extends JFrame implements ActionListener{
 	static Puu			puu = new Puu();
 	static DefaultMutableTreeNode juuriNode = new DefaultMutableTreeNode();
 
-	// Constructor of main frame
+	// UI:n konstruktori, luo perus käyttöliittymän 2-3-4 Puun käytämiseksi
 	public UI(){
 
 
-		// Set the frame characteristics
+		// JFramen ominaisuudet
 		setTitle( "Graphical user interface" );
 		setSize( 400, 400 );
 		setResizable(true);
@@ -43,7 +44,7 @@ public class UI extends JFrame implements ActionListener{
 		setVisible(true);
 
 
-		// Create a panel to hold all other components
+		// Komponenttipaneeli
 		firstPanel = new JPanel();
 		JLabel label1 = new JLabel("Add a data element to the tree");
 		firstPanel.add(label1);
@@ -51,34 +52,32 @@ public class UI extends JFrame implements ActionListener{
 
 
 
-		// Adding button1
+		// button1
 		button1 = new JButton("Add");
 		button1.setToolTipText("Adds a value to the tree");
 		button1.addActionListener(this);
 		firstPanel.add(button1);
 
-		// Adding a textfield
+		// textField1
 		textField1 = new JTextField("", 10);
 		firstPanel.add(textField1);
 		textField1.requestFocus();
 
 
-		// Create a panel to hold the tree being built
+		// JPaneeli, jossa JTree esitetään
 		treePanel = new JPanel();
 		Border secondPanelBorder = BorderFactory.createTitledBorder("Tree");
 		treePanel.setBorder(secondPanelBorder);
 		firstPanel.add( treePanel, BorderLayout.SOUTH );
 
-		// Adding the tree
-
-
+		// AlkuUI:ssa oleva defaulttipuu, jtta se ei näyttäisi tyhjältä
 		tree = new JTree();
 		treePanel.add(tree);
 
 	}
-	// Main entry point for this example
+	// 
 	public static void main( String args[] ){
-		// Create an instance of the test application
+		
 		UI mainFrame	= new UI();
 		mainFrame.setVisible( true );
 
@@ -88,6 +87,8 @@ public class UI extends JFrame implements ActionListener{
 
 	/**
 	 * Kun käyttäjä painaa button1-nappia, lisää metodi textField1:ssä olevan arvon puuhun.
+	 * Kutsuu piirraPuu-metodia piirtääkseen JTree-rakenteen
+	 * @author Arttu Laitinen
 	 */
 	public void actionPerformed(ActionEvent e){
 
@@ -106,6 +107,7 @@ public class UI extends JFrame implements ActionListener{
 	/**
 	 * Aloittaa JTree-rakenteen piirtämisen Puun mukaiseksi juuresta. 
 	 * JuuriNoden nimeksi haetaan Puun juuren arvojen toString-syöte.
+	 * @author Arttu Laitinen
 	 * @param juuriSolmu
 	 */
 	public void piirraPuu(Solmu juuriSolmu, DefaultMutableTreeNode juuriNode){
@@ -114,7 +116,7 @@ public class UI extends JFrame implements ActionListener{
 		juuriNode.setUserObject(juurenNimi);
 		tree = new JTree(juuriNode);
 
-		if (juuriSolmu.onkoLehti()==false){
+		if (!(juuriSolmu.onkoLehti())){
 			for(int i = 0 ; i < juuriSolmu.annaLapset().size() ; i++){
 				String arvot = juuriSolmu.annaLapsi(i).annaArvot().toString();
 				addNode(arvot, juuriNode);
@@ -125,20 +127,34 @@ public class UI extends JFrame implements ActionListener{
 		treePanel.add(tree);
 		firstPanel.revalidate();
 	}
-
+	/**
+	 * Piirtää syötteenään saamansa solmun lasten vastaavat nodet JTree-rakennelmaan
+	 * 
+	 * @author Arttu Laitinen
+	 * @param isaSolmu
+	 * @param isaNode
+	 */
 	public void piirraLapsiSolmut(Solmu isaSolmu, DefaultMutableTreeNode isaNode){
-		if (isaSolmu.onkoLehti()==false){
+		if (!(isaSolmu.onkoLehti())){
 			for(int i = 0 ; i < isaSolmu.annaLapset().size() ; i++){
 				String arvot = isaSolmu.annaLapsi(i).annaArvot().toString();
 				addNode(arvot, isaNode);
-				piirraLapsiSolmut(isaSolmu, isaNode);
-			}
+				piirraLapsiSolmut(isaSolmu.annaLapsi(i), isaNode);
+				}
+			
 		}
 	}
 
 
 
-
+	/**
+	 * Metodi, joka lisää syötteenään saamansa Stringin nimisen DefaultMutableTreeNoden parentNode-noden lapseksi.
+	 * 
+	 * @author Arttu Laitinen
+	 * @param fileName
+	 * @param parentNode
+	 * @return
+	 */
 	private DefaultMutableTreeNode addNode(String fileName, DefaultMutableTreeNode parentNode){
 		DefaultMutableTreeNode newFile = new DefaultMutableTreeNode(fileName);
 		parentNode.add(newFile);
