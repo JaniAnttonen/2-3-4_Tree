@@ -8,11 +8,13 @@ public class Testiluokka {
         ebin.lisaaArvo(2);*/
 		Puu puu = new Puu();
 		puu.lisaaArvoPuuhun(15);
-        puu.lisaaArvoPuuhun(1);
+        puu.lisaaArvoPuuhun(3);
         puu.lisaaArvoPuuhun(2);
         puu.lisaaArvoPuuhun(4);
         puu.lisaaArvoPuuhun(6);
-        puu.lisaaArvoPuuhun(15);
+        puu.lisaaArvoPuuhun(1);
+
+
 		
 		
 		int vastaus = puu.etsi(15);

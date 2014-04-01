@@ -39,6 +39,7 @@ public class Puu {
 		Solmu nykyinenSolmu = root;
 		nykyinenSolmu = etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
 		nykyinenSolmu.lisaaArvo(arvo);
+        System.out.println(nykyinenSolmu.toString());
 	}
 
 	/**
@@ -53,6 +54,7 @@ public class Puu {
 		
 		if (nykyinenSolmu.onkoLehti()){
 			if(nykyinenSolmu.onkoTaysi()){
+                System.out.println(nykyinenSolmu.toString());
 				halkaiseSolmu(nykyinenSolmu);
 			}
 			else return nykyinenSolmu;
@@ -69,9 +71,9 @@ public class Puu {
 		intC = halkaistavaSolmu.poistaArvo();
 		intB = halkaistavaSolmu.poistaArvo();
 
-		System.out.println("lasten m��r� = "+halkaistavaSolmu.annaLapset().size());
+		//System.out.println("lasten m��r� = "+halkaistavaSolmu.annaLapset().size());
 		
-		System.out.println(halkaistavaSolmu.annaLapset().size());
+		//System.out.println(halkaistavaSolmu.annaLapset().size());
 		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksill� 2
 		lapsi2 = halkaistavaSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksill� 1
 

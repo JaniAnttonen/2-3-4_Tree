@@ -227,10 +227,42 @@ public class Solmu {
 	}
 
 	public boolean onkoLehti() {
-		return lapset.isEmpty();
+        for(Solmu lapsi : lapset){
+            if(lapsi.annaArvot().size()!=0)
+                return false;
+        }
+        return true;
 	}
 
 	public Integer annaArvo(int indeksi) {
 		return arvot.get(indeksi);
 	}
+
+    public String toString() {
+
+        String palautus = "";
+
+        if (annaIsa()!=null) {
+            palautus = isa.annaArvot().toString();
+            palautus += " -> ";
+        }
+
+        for(int i=0;i<arvot.size();++i){
+            palautus += lapset.get(i).annaArvot().toString();
+            if (i==0)
+                palautus += " / ";
+            else
+                palautus += " | ";
+            palautus += arvot.get(i).toString();
+
+            if (i+1==arvot.size())
+                palautus += " \\ ";
+            else
+                palautus += " | ";
+        }
+        palautus += lapset.get(arvot.size()).annaArvot().toString();
+
+        return palautus;
+
+    }
 }
