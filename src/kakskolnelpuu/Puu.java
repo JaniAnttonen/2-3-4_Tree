@@ -180,15 +180,23 @@ public class Puu {
 		lapsi3 = halkaistavaSolmu.irroitaLapsi(2); //lapsi3 = nykyinenSolmu -solmun lapsi indeksill� 2
 		lapsi2 = halkaistavaSolmu.irroitaLapsi(1); //lapsi3 = nykyinenSolmu -solmun lapsi indeksill� 1
 
-
+        // Tarvitsemme uuden solmun. Tämä on se.
 		Solmu uusiOikea = new Solmu();
 
+        /*
+         * Tilanteessa, jossa halkaistava solmu on juurisolmu,
+         * pitää luoda uusi juurisolmu.
+         */
 		if(halkaistavaSolmu==root){
 			root = new Solmu();
 			isa = root;
 			root.yhdistaLapsi(0, halkaistavaSolmu);
 		}
 
+        /*
+         * Jos halkaistava solmu ei ole juurisolmu,
+         * asetetaan uuden solmun isäksi sama kuin vanha.
+         */
 		else
 			isa = halkaistavaSolmu.annaIsa();
 
@@ -197,14 +205,16 @@ public class Puu {
         // Mikä on isäsolmun koko?
 		int n = isa.annaArvot().size();
 
-
+        // Siirretään isän lapsia yhdellä indeksillä eteenpäin
 		for( int j=n-1; j>arvoIndeksi; j--){
 			Solmu valiaikainen = isa.irroitaLapsi(j);
 			isa.yhdistaLapsi(j+1, valiaikainen);
 		}
 
+        // Yhdistetään uusi solmu isäsolmuunsa
 		isa.yhdistaLapsi(arvoIndeksi+1, uusiOikea);
 
+        // Derp
 		uusiOikea.lisaaArvo(intB);
 		uusiOikea.yhdistaLapsi(0, lapsi2);
 		uusiOikea.yhdistaLapsi(1, lapsi3);
@@ -248,9 +258,13 @@ public class Puu {
 	}
 
     public int etsiSeuraaja(Solmu nykyinenSolmu, int vertailtava) {
-return 1;
+
+        return 0;
     }
 
+    /*
+     * Moi Arttu 3====o - - ,
+     */
     public Solmu annaJuuri() {
         return root;
     }

@@ -175,6 +175,7 @@ public class Solmu {
 	/**
 	 * Poistaa Solmun suurimman arvon ja palauttaa sen
 	 * @return Integer poistettu arvo
+     * @post Käytetään 
 	 */
 	public Integer poistaArvo() {
 
