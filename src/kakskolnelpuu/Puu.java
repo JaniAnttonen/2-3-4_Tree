@@ -21,7 +21,8 @@ public class Puu {
 		int lapsiIndeksi;
 		while (true)
 		{
-			if((lapsiIndeksi=nykyinenSolmu.etsiArvo(avain)) != -1)
+            lapsiIndeksi = nykyinenSolmu.etsiArvo(avain);
+			if(lapsiIndeksi!=-1)
 				return lapsiIndeksi;
 			else if(nykyinenSolmu.onkoLehti())
 				return -1;
@@ -114,23 +115,38 @@ public class Puu {
 	}
 
 	/**
-	 * Etsii lapsista oikean solmun
-	 * 
+	 * Vertailee ennaltaolevia arvoja uuteen arvoon ja päättää sen paikan puussa.
+	 *
+     * 2-3-4-Puun luontoon kuuluen, alotetaan täyttö aina puun pohjalta, joten siksi
+     * puu etsii viimeistä lasta, johon arvo voitaisiin lisätä.
+     * @pre nykyinenSolmu ei saa olla täysi eikä lehtisolmu.
 	 * @param nykyinenSolmu
 	 * @param vertailtavaArvo
-	 * @return
+	 * @return Lapsisolmu, johon vertailtavaArvo sopii
 	 */
 	public Solmu etsiSeuraavaLapsi(Solmu nykyinenSolmu, int vertailtavaArvo){
+
+        // Alustetaan tarvittavat apumuuttujat
 		int j=0;
         int koko = nykyinenSolmu.annaArvot().size();
 
+        // Iteroidaan koko nykyistä solmua
         while(j<koko){
+
+            /*
+             * Jos arvo on pienempi kuin vertailtu arvo,
+             * palautetaan arvon osoitteeksi vertailtavaa edeltävä lapsisolmu.
+             */
 			if(vertailtavaArvo < nykyinenSolmu.annaArvo(j)){
 				return nykyinenSolmu.annaLapsi(j);
 			}
             j++;
 		}
 
+        /*
+         * Jos arvo on suurempi kuin kaikki vertaillut arvot,
+         * palautetaan arvon osoitteeksi solmun viimeinen lapsisolmu.
+         */
 		return nykyinenSolmu.annaLapsi(j);
 	}
 }

@@ -65,7 +65,7 @@ public class Solmu {
 	public int etsiArvo(int avain) {
 
         // Iteroidaan arvot läpi.
-        for (int j=0; j<arvot.size()-1; j++) {
+        for (int j=0; j<arvot.size(); j++) {
 
             // Jos arvolle löytyi vastaavuus, palautetaan sen indeksi.
 			if (arvot.get(j)==avain)

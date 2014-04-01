@@ -12,14 +12,10 @@ public class Testiluokka {
         puu.lisaaArvoPuuhun(30);
         puu.lisaaArvoPuuhun(40);
         puu.lisaaArvoPuuhun(50);
-        puu.lisaaArvoPuuhun(20);
-        puu.lisaaArvoPuuhun(30);
-        puu.lisaaArvoPuuhun(39);
+        puu.lisaaArvoPuuhun(22);
+        puu.lisaaArvoPuuhun(21);
 
-
-		
-		
-		int vastaus = puu.etsi(15);
+		int vastaus = puu.etsi(14);
 		
 		System.out.println(vastaus);
 	}
