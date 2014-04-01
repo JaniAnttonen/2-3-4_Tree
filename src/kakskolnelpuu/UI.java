@@ -32,6 +32,7 @@ public class UI extends JFrame implements ActionListener{
 		// Set the frame characteristics
 		setTitle( "Graphical user interface" );
 		setSize( 400, 400 );
+		setResizable(true);
 
 		setLocationRelativeTo(null);
 		setBackground( Color.gray );
@@ -70,7 +71,7 @@ public class UI extends JFrame implements ActionListener{
 
 		// Adding the tree
 
-		
+
 		tree = new JTree();
 		treePanel.add(tree);
 
@@ -84,7 +85,7 @@ public class UI extends JFrame implements ActionListener{
 
 
 	}
-	
+
 	/**
 	 * Kun käyttäjä painaa button1-nappia, lisää metodi textField1:ssä olevan arvon puuhun.
 	 */
@@ -95,35 +96,49 @@ public class UI extends JFrame implements ActionListener{
 				int lisattavaArvo = Integer.parseInt(textField1.getText());
 				UI.puu.lisaaArvoPuuhun(lisattavaArvo);
 				System.out.println(lisattavaArvo);
-				
-				piirraLapsiSolmut(puu.annaJuuri(), juuriNode);
+
+				piirraPuu(puu.annaJuuri(), juuriNode);
 
 
 			}
 		}
 	}
-/**
- * 
- * @param isaSolmu
- */
-	public void piirraLapsiSolmut(Solmu isaSolmu, DefaultMutableTreeNode isaNode){
+	/**
+	 * Aloittaa JTree-rakenteen piirtämisen Puun mukaiseksi juuresta. 
+	 * JuuriNoden nimeksi haetaan Puun juuren arvojen toString-syöte.
+	 * @param juuriSolmu
+	 */
+	public void piirraPuu(Solmu juuriSolmu, DefaultMutableTreeNode juuriNode){
 		treePanel.remove(tree);
-		tree = new JTree(isaNode);
-		
-		if (isaSolmu.onkoLehti()==false){
-			for(int i = 0 ; i < isaSolmu.annaLapset().size() ; i++){
-				String arvot = isaSolmu.annaLapsi(i).annaArvot().toString();
-				addNode(arvot, isaNode);
+		String juurenNimi = juuriSolmu.annaArvot().toString();
+		juuriNode.setUserObject(juurenNimi);
+		tree = new JTree(juuriNode);
+
+		if (juuriSolmu.onkoLehti()==false){
+			for(int i = 0 ; i < juuriSolmu.annaLapset().size() ; i++){
+				String arvot = juuriSolmu.annaLapsi(i).annaArvot().toString();
+				addNode(arvot, juuriNode);
+				piirraLapsiSolmut(juuriSolmu.annaLapsi(i), juuriNode);
 			}
 		}
+		
 		treePanel.add(tree);
 		firstPanel.revalidate();
 	}
 
+	public void piirraLapsiSolmut(Solmu isaSolmu, DefaultMutableTreeNode isaNode){
+		if (isaSolmu.onkoLehti()==false){
+			for(int i = 0 ; i < isaSolmu.annaLapset().size() ; i++){
+				String arvot = isaSolmu.annaLapsi(i).annaArvot().toString();
+				addNode(arvot, isaNode);
+				piirraLapsiSolmut(isaSolmu, isaNode);
+			}
+		}
+	}
 
 
 
-	
+
 	private DefaultMutableTreeNode addNode(String fileName, DefaultMutableTreeNode parentNode){
 		DefaultMutableTreeNode newFile = new DefaultMutableTreeNode(fileName);
 		parentNode.add(newFile);
