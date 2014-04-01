@@ -37,6 +37,7 @@ public class Puu {
 	 */
 	public void lisaaArvoPuuhun(int arvo){
 		Solmu nykyinenSolmu = root;
+        System.out.println("Lisätään arvo " + arvo);
 		nykyinenSolmu = etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
 		nykyinenSolmu.lisaaArvo(arvo);
         System.out.println(nykyinenSolmu.toString());
@@ -52,15 +53,19 @@ public class Puu {
 	 */
 	public Solmu etsiSolmuJohonVoiLisataArvon(Solmu nykyinenSolmu, int arvo){
 		
-		if (nykyinenSolmu.onkoLehti()){
-			if(nykyinenSolmu.onkoTaysi()){
-                System.out.println(nykyinenSolmu.toString());
-				halkaiseSolmu(nykyinenSolmu);
-			}
-			else return nykyinenSolmu;
-		}
-		else nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, arvo);
-		return etsiSolmuJohonVoiLisataArvon(nykyinenSolmu, arvo);
+		while (true) {
+            if (nykyinenSolmu.onkoTaysi()) {
+                halkaiseSolmu(nykyinenSolmu);
+                nykyinenSolmu = nykyinenSolmu.annaIsa();
+                nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, arvo);
+            }
+            else if (nykyinenSolmu.onkoLehti())
+                break;
+            else
+                nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu, arvo);
+        }
+
+        return nykyinenSolmu;
 	}
 
 	public void halkaiseSolmu(Solmu halkaistavaSolmu){
@@ -68,8 +73,8 @@ public class Puu {
 		Solmu isa, lapsi2, lapsi3;
 		int arvoIndeksi;
 
-		intC = halkaistavaSolmu.poistaArvo();
 		intB = halkaistavaSolmu.poistaArvo();
+		intC = halkaistavaSolmu.poistaArvo();
 
 		//System.out.println("lasten m��r� = "+halkaistavaSolmu.annaLapset().size());
 		
@@ -90,7 +95,7 @@ public class Puu {
 			isa = halkaistavaSolmu.annaIsa();
 
         // Lisätään halkaistun solmun keskimmäisin arvo isäsolmuun ja otetaan sen indeksi isäsolmussa.
-		arvoIndeksi = isa.lisaaArvo(intB);
+		arvoIndeksi = isa.lisaaArvo(intC);
         // Mikä on isäsolmun koko?
 		int n = isa.annaArvot().size();
 
@@ -102,9 +107,10 @@ public class Puu {
 
 		isa.yhdistaLapsi(arvoIndeksi+1, uusiOikea);
 
-		uusiOikea.lisaaArvo(intC);
+		uusiOikea.lisaaArvo(intB);
 		uusiOikea.yhdistaLapsi(0, lapsi2);
 		uusiOikea.yhdistaLapsi(1, lapsi3);
+
 	}
 
 	/**
@@ -116,14 +122,15 @@ public class Puu {
 	 */
 	public Solmu etsiSeuraavaLapsi(Solmu nykyinenSolmu, int vertailtavaArvo){
 		int j=0;
+        int koko = nykyinenSolmu.annaArvot().size();
 
-		int koko = nykyinenSolmu.annaArvot().size();
-		while(j<koko-1){
+        while(j<koko){
 			if(vertailtavaArvo < nykyinenSolmu.annaArvo(j)){
 				return nykyinenSolmu.annaLapsi(j);
 			}
             j++;
 		}
+
 		return nykyinenSolmu.annaLapsi(j);
 	}
 }

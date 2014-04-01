@@ -25,9 +25,12 @@ public class Solmu {
 	public void yhdistaLapsi(int indeksi, Solmu lapsi) {
 
         // Lisätään lapsisolmu määritettyyn indeksiin
-		lapset.add(indeksi,lapsi);
+        if (lapset.size()>indeksi)
+		    lapset.set(indeksi,lapsi);
+        else
+            lapset.add(indeksi,lapsi);
 
-        // Mitä tässä tehdään? No fucking clue
+        // Tyhjien lapsisolmujen tekoa (lehtisolmuille)
         if(lapsi != null)
 			lapsi.asetaIsa(this);
 
@@ -243,16 +246,25 @@ public class Solmu {
         String palautus = "";
 
         if (annaIsa()!=null) {
-            palautus = isa.annaArvot().toString();
+            //palautus = isa.annaArvot().toString();
+            palautus += isa.toString();
             palautus += " -> ";
+            int IndX = 0;
+            for(Solmu skidi: isa.annaLapset()){
+                if(skidi==this)
+                    palautus += "lapsi nro " + IndX + " -> ";
+                IndX++;
+            }
         }
 
         for(int i=0;i<arvot.size();++i){
             palautus += lapset.get(i).annaArvot().toString();
+
             if (i==0)
                 palautus += " / ";
             else
                 palautus += " | ";
+
             palautus += arvot.get(i).toString();
 
             if (i+1==arvot.size())

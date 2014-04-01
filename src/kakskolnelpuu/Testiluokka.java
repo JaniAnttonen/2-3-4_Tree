@@ -7,12 +7,14 @@ public class Testiluokka {
         ebin.lisaaArvo(4);
         ebin.lisaaArvo(2);*/
 		Puu puu = new Puu();
-		puu.lisaaArvoPuuhun(15);
-        puu.lisaaArvoPuuhun(3);
-        puu.lisaaArvoPuuhun(2);
-        puu.lisaaArvoPuuhun(4);
-        puu.lisaaArvoPuuhun(6);
-        puu.lisaaArvoPuuhun(1);
+		puu.lisaaArvoPuuhun(10);
+        puu.lisaaArvoPuuhun(20);
+        puu.lisaaArvoPuuhun(30);
+        puu.lisaaArvoPuuhun(40);
+        puu.lisaaArvoPuuhun(50);
+        puu.lisaaArvoPuuhun(20);
+        puu.lisaaArvoPuuhun(30);
+        puu.lisaaArvoPuuhun(39);
 
 
 		
