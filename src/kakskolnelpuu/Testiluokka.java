@@ -11,7 +11,7 @@ public class Testiluokka {
         puu.lisaaArvoPuuhun(50);
         puu.lisaaArvoPuuhun(22);
         puu.poista(30);
-        puu.poista(50);
+        puu.poista(20);
 		//int vastaus = puu.etsi(30);
 		
 		//System.out.println(vastaus);

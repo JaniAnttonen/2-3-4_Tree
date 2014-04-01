@@ -134,9 +134,37 @@ public class Puu {
          * on lapsisolmuja, pitää korjausoperaatioita tehdä.
          */
         else if (!arvonSolmu.onkoLehti()) {
+
             System.out.println(arvonSolmu.toString());
             System.out.println("Poisto-operaatiota ei voida tehdä suoraan, tehdään korjauksia.");
 
+            int seuraaja = etsiSeuraaja(arvonSolmu, arvoOsoite);
+
+            /*
+            To remove a value from the 2–3–4 tree:
+Find the element to be deleted.
+If the element is not in a leaf node, remember its location and continue searching until a leaf,
+which will contain the element’s successor, is reached. The successor can be either the largest key that is
+smaller than the one to be removed, or the smallest key that is larger than the one to be removed.
+
+If the element is in a 2-node leaf, just make the adjustments below.
+Make the following adjustments when a 2-node – except the root node – is encountered on the way to the leaf we want to remove:
+If a sibling on either side of this node is a 3-node or a 4-node (thus having more than 1 key),
+perform a rotation with that sibling:
+The key from the other sibling closest to this node moves up to the parent key that overlooks the two nodes.
+The parent key moves down to this node to form a 3-node.
+The child that was originally with the rotated sibling key is now this node's additional child.
+If the parent is a 2-node and the sibling is also a 2-node,
+combine all three elements to form a new 4-node and shorten the tree.
+(This rule can only trigger if the parent 2-node is the root, since all other 2-nodes along the way will have been modified
+to not be 2-nodes. This is why "shorten the tree" here preserves balance;
+this is also an important assumption for the fusion operation.)
+
+If the parent is a 3-node or a 4-node and all siblings are 2-nodes, do a fusion operation with the parent and an adjacent sibling:
+The adjacent sibling and the parent key overlooking the two sibling nodes come together to form a 4-node.
+Transfer the sibling's children to this node.
+Once the sought value is reached, it can now be placed at the removed entry's location without a problem because we have ensured that the leaf node has more than 1 key.
+             */
             /*
              * Jos solmussa on vain yksi arvo ja
              * sillä on täten kaksi lapsisolmua
@@ -147,11 +175,12 @@ public class Puu {
 
             else{
                 // Haetaan poistettua arvoa lähin arvo
-                int seuraaja = etsiSeuraaja(arvonSolmu, arvo);
+                arvonSolmu.irroitaLapsi(arvoOsoite);
                 arvonSolmu.poistaArvo(arvoOsoite);
                 arvonSolmu.lisaaArvo(seuraaja);
                 System.out.println(arvonSolmu.toString());
             }
+
         }
 
         /*
@@ -280,29 +309,25 @@ public class Puu {
      * @return seuraava arvo
      */
     public int etsiSeuraaja(Solmu nykyinenSolmu, int vertailtava) {
-        int j;
+
+        nykyinenSolmu = nykyinenSolmu.annaLapsi(vertailtava+1);
+
         /*
          * Iteroidaan solmut nykyisestä aina lehtisolmuun,
          * jossa seuraaja sijaitsee
          */
         while(true) {
-            j=0;
-            int koko = nykyinenSolmu.annaArvot().size();
 
-            while(j<koko){
-
-                if (vertailtava < nykyinenSolmu.annaArvo(j))
-                    nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu,vertailtava);
-
-                j++;
-
-            }
-
-            if(nykyinenSolmu.onkoLehti())
+            if (!nykyinenSolmu.onkoLehti())
+                nykyinenSolmu = nykyinenSolmu.annaLapsi(0);
+            else
                 break;
+
         }
-        System.out.println(nykyinenSolmu.annaArvo(j));
-        return nykyinenSolmu.annaArvo(j);
+
+        int seuraaja = nykyinenSolmu.annaArvo(nykyinenSolmu.annaArvot().size()-1);
+        System.out.println(seuraaja);
+        return seuraaja;
     }
 
     /*
@@ -310,5 +335,11 @@ public class Puu {
      */
     public Solmu annaJuuri() {
         return root;
+    }
+
+    public Solmu vasenSisko(Solmu nykyinen) {
+        Solmu palautus;
+        nykyinen.annaIsa();
+        palautus = nykyinen.annaIsa().annaLapsi(nykyinen.annaIsa().etsiArvo());
     }
 }
