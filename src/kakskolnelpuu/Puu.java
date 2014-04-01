@@ -134,24 +134,31 @@ public class Puu {
          * on lapsisolmuja, pitää korjausoperaatioita tehdä.
          */
         else if (!arvonSolmu.onkoLehti()) {
+
             System.out.println(arvonSolmu.toString());
             System.out.println("Poisto-operaatiota ei voida tehdä suoraan, tehdään korjauksia.");
+
+            int seuraaja = etsiSeuraaja(arvonSolmu, arvoOsoite);
+           // Solmu vasenVeli = vasenVeli(arvonSolmu);
+            //Solmu oikeaVeli = oikeaVeli(arvonSolmu);
 
             /*
              * Jos solmussa on vain yksi arvo ja
              * sillä on täten kaksi lapsisolmua
              */
             if (arvonSolmu.annaArvot().size()==1){
-                System.out.println(arvonSolmu.toString());
+                //System.out.println(arvonSolmu.toString());
             }
 
             else{
+
                 // Haetaan poistettua arvoa lähin arvo
-                int seuraaja = etsiSeuraaja(arvonSolmu, arvo);
+                arvonSolmu.irroitaLapsi(arvoOsoite);
                 arvonSolmu.poistaArvo(arvoOsoite);
                 arvonSolmu.lisaaArvo(seuraaja);
-                System.out.println(arvonSolmu.toString());
+                //System.out.println(arvonSolmu.toString());
             }
+
         }
 
         /*
@@ -279,30 +286,24 @@ public class Puu {
      * @param vertailtava
      * @return seuraava arvo
      */
-    public int etsiSeuraaja(Solmu nykyinenSolmu, int vertailtava) {
-        int j;
+    public int etsiSeuraaja(Solmu nykyinenSolmu, int nykyinenIndx) {
+
+        nykyinenSolmu = nykyinenSolmu.annaLapsi(nykyinenIndx+1);
+
         /*
          * Iteroidaan solmut nykyisestä aina lehtisolmuun,
          * jossa seuraaja sijaitsee
          */
         while(true) {
-            j=0;
-            int koko = nykyinenSolmu.annaArvot().size();
-
-            while(j<koko){
-
-                if (vertailtava < nykyinenSolmu.annaArvo(j))
-                    nykyinenSolmu = etsiSeuraavaLapsi(nykyinenSolmu,vertailtava);
-
-                j++;
-
-            }
-
-            if(nykyinenSolmu.onkoLehti())
+            if (nykyinenSolmu.onkoLehti())
                 break;
+            else
+                nykyinenSolmu = nykyinenSolmu.annaLapsi(0);
         }
-        System.out.println(nykyinenSolmu.annaArvo(j));
-        return nykyinenSolmu.annaArvo(j);
+
+        int seuraaja = nykyinenSolmu.annaArvo(nykyinenSolmu.annaArvot().size()-1);
+        System.out.println(seuraaja);
+        return seuraaja;
     }
 
     /*
@@ -311,4 +312,32 @@ public class Puu {
     public Solmu annaJuuri() {
         return root;
     }
+
+    /*public Solmu vasenVeli(Solmu nykyinen) {
+        Solmu palautus = null;
+        Solmu isa = nykyinen.annaIsa();
+
+        for(int i=0;i<isa.annaArvot().size();++i){
+            if(isa.annaLapsi(i) == nykyinen && i==0)
+                palautus = isa.annaLapsi(0);
+            else if(isa.annaLapsi(i) == nykyinen)
+                palautus = isa.annaLapsi(i-1);
+        }
+
+        return palautus;
+    }
+
+    public Solmu oikeaVeli(Solmu nykyinen) {
+        Solmu palautus = null;
+        Solmu isa = nykyinen.annaIsa();
+
+        for (int i=0;i<isa.annaArvot().size();++i){
+            if (isa.annaLapsi(i) == nykyinen && i == isa.annaArvot().size() - 1)
+                palautus = isa.annaLapsi(isa.annaArvot().size() - 1);
+            else if (isa.annaLapsi(i) == nykyinen)
+                palautus = isa.annaLapsi(i + 1);
+        }
+
+        return palautus;
+    }*/
 }

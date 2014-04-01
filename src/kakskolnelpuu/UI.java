@@ -9,7 +9,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
- * 2-3-4-puun graafinen käyttöliittymä
+ * 2-3-4-puun graafinen kï¿½yttï¿½liittymï¿½
  * @author Arttu Laitinen
  * 
  *Kokonaisuus ei vielä ihan toimi halutulla tavalla
@@ -77,7 +77,7 @@ public class UI extends JFrame implements ActionListener{
 	}
 	// 
 	public static void main( String args[] ){
-		
+
 		UI mainFrame	= new UI();
 		mainFrame.setVisible( true );
 
@@ -123,7 +123,7 @@ public class UI extends JFrame implements ActionListener{
 				piirraLapsiSolmut(juuriSolmu.annaLapsi(i), juuriNode);
 			}
 		}
-		
+
 		treePanel.add(tree);
 		firstPanel.revalidate();
 	}
@@ -135,13 +135,15 @@ public class UI extends JFrame implements ActionListener{
 	 * @param isaNode
 	 */
 	public void piirraLapsiSolmut(Solmu isaSolmu, DefaultMutableTreeNode isaNode){
+
 		if (!(isaSolmu.onkoLehti())){
+
+
 			for(int i = 0 ; i < isaSolmu.annaLapset().size() ; i++){
 				String arvot = isaSolmu.annaLapsi(i).annaArvot().toString();
 				addNode(arvot, isaNode);
 				piirraLapsiSolmut(isaSolmu.annaLapsi(i), isaNode);
-				}
-			
+			}
 		}
 	}
 
