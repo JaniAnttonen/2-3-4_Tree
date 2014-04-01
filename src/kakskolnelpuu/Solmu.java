@@ -174,7 +174,7 @@ public class Solmu {
 
 	/**
 	 * Poistaa Solmun suurimman arvon ja palauttaa sen
-	 * @return int poistettu arvo
+	 * @return Integer poistettu arvo
 	 */
 	public Integer poistaArvo() {
 
@@ -191,6 +191,25 @@ public class Solmu {
 	    return valiaikainen;
 
 	}
+
+    /**
+     * Poistaa arvon määritetystä indeksistä
+     * @return Integer poistettu arvo
+     */
+    public Integer poistaArvo(int IndX) {
+        Integer valiaikainen = null;
+
+        // Tarkistetaan, voiko poistoa edes tehdä määritetyssä indeksissä.
+        if(IndX<=arvot.size()) {
+            valiaikainen = arvot.get(IndX);
+            // Poistetaan arvo, kun se on muistissa
+            arvot.remove(IndX);
+            return valiaikainen;
+        }
+
+        return valiaikainen;
+    }
+
 
     /**
      * Tarkistaa, onko solmussa jo 3 arvoa.
